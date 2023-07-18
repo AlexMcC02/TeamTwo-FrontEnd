@@ -1,4 +1,4 @@
-import { Jobs } from "../model/jobs";
+import { Jobs } from "../model/Jobs";
 // const productValidator = require('../validator/productValidator')
 const axios = require('axios');
 

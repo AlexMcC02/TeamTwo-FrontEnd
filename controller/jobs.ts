@@ -1,7 +1,7 @@
 import { Application } from "express";
 import { Response } from "express";
 import { Request } from "express";
-import { Jobs } from "../model/jobs";
+import { Jobs } from "../model/Jobs";
 
 const job = require('../service/deliveryEmployeeService')
 
