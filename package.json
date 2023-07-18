@@ -1,10 +1,10 @@
 {
-  "name": "16tables-frontend",
+  "name": "TeamTwo-FrontEnd",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "npx tsc && cp -R views dist && node dist/app.js",
+    "start": "npx tsc && cp -R views dist && node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

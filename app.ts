@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import session = require("express-session");
-import { Login } from "./model/auth";
 
 const express = require("express");
 const path = require("path");
@@ -49,11 +48,4 @@ app.get("/index", async (req: Request, res: Response) => {
   });
 });
 
-require("./controller/authController")(app);
-const authMiddleware = require('./middleware/auth')
-app.use(authMiddleware)
-
-require('./controller/salesEmployeeController')(app)
-require("./controller/clientController")(app);
-require("./controller/projectController")(app);
-require("./controller/deliveryEmployeeController")(app);
+require("./controller/JobRoleController")(app);

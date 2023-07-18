@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>View Jobs</title>
+    <title>View Job Roles</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     </meta>
 </head>
@@ -15,7 +15,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>View Jobs</h1>
+                    <h1>View Job Roles</h1>
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
     <main class="container mt-4">
         <section id="products" class="mt-4">
             <h2>Jobs</h2>
-            {% if jobs and jobs.length > 0 %}
+            {% if jobRole and jobRoles.length > 0 %}
             <table class="table">
                 <thead>
                     <tr>
@@ -34,12 +34,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for deliveryEmployee in deliveryEmployees %}
+                    {% for jobRole in jobRoles %}
                     <tr>
-                        <td>{{ jobs.name }}</td>
-                        <td>{{jobs.specification}}</td>
-                        <td>{{ jobs.bandLevel }}</td>
-                        <td>{{ jobs.capability }}</td>
+                        <td>{{ jobRole.Name }}</td>
+                        <td>{{ jobRole.Specification}}</td>
+                        <td>{{ jobRole.BandID }}</td>
+                        <td>{{ jobRole.CapabilityID }}</td>
                         <!-- <td><a href='/delivery-employees/{{ deliveryEmployee.id }}'>View</a></td>
                         <td><a href='/delivery-employees/delete/{{ deliveryEmployee.id }}'>Delete</a></td> -->
                     </tr>
