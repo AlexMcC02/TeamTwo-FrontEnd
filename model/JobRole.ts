@@ -1,7 +1,7 @@
 export class JobRole {
-    ID?: number
-    Name?: string
+    id?: number
+    name?: string
     specification?: string
-    bandLevel?: number
-    capability?: number
+    bandId?: number
+    capabilityId?: number
 }

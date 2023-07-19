@@ -34,13 +34,13 @@
                 <tbody>
                     {% for jobRole in jobRoles %}
                     <tr>
-                        <td>{{ jobRole.Name }}</td>
-                        <td>{{ jobRole.Specification}}</td>
-                        <td>{{ jobRole.BandID }}</td>
-                        <td>{{ jobRole.CapabilityID }}</td>
+                        <td>{{ jobRole.name }}</td>
+                        <td>{{ jobRole.specification}}</td>
+                        <td>{{ jobRole.bandID }}</td>
+                        <td>{{ jobRole.capabilityID }}</td>
                     </tr>
+                    {% endfor %}
                 </tbody>
-                {% endfor %}
             </table>
             {% else %}
             There are no jobs.

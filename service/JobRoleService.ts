@@ -1,5 +1,4 @@
 const axios = require('axios');
-import { JobRole } from "../model/JobRole";
 
 module.exports.getJobRoles = async function() {
     try {
