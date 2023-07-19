@@ -2,7 +2,8 @@ var axios = require('axios');
 var MockAdapter = require('axios-mock-adapter')
 var chai = require('chai')
 const expect = chai.expect
-const JobRoleService = require('../../../service/JobRoleService')
+const JobRoleService = require('../../../service/JobRoleService');
+const { Test } = require('mocha');
 
 const jobrole = {
     id: "1",
@@ -11,7 +12,7 @@ const jobrole = {
     capabilityID: "1",
     bandID: "1"
 }
-
+Test
 describe('JobRoleService', function () {
     describe('getJobRoles', function () {
         it('should return jobroles from response', async () => {
