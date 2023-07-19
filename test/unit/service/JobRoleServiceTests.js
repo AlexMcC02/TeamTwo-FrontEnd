@@ -7,9 +7,7 @@ const JobRoleService = require('../../../service/JobRoleService')
 const jobrole = {
     id: "1",
     name: "Software Engineer",
-    specification: "Does coding.",
-    capabilityID: "1",
-    bandID: "1"
+    specification: "Does coding."
 }
 
 describe('JobRoleService', function () {
