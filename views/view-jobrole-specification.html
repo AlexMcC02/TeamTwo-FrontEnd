@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Search results</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <header class="bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Specification</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container mt-4">
+        <section id="specification" class="mt-4">
+            {% if 1==1 %}
+            <h2>Name</h2>
+            {{ jobRole.name }}
+            <h2>Specification</h2>
+            {{ jobRole.specification}}
+         
+            {% else %}
+            Could not find Specification.
+            {% endif %}
+        </section>
+        <div class="mt-2">
+            <a href='/job_roles/' class="btn btn-primary">Back to sales employees</a>
+        </div>
+    </main>
+</body>
+
+</html>

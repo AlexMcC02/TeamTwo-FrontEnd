@@ -54,3 +54,22 @@ module.exports.getJobRoles = function () {
         });
     });
 };
+module.exports.getSpecificationById = function (id) {
+    return __awaiter(this, void 0, void 0, function () {
+        var response, e_2;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, axios.get('http://localhost:8080/api/job_roles/' + id)];
+                case 1:
+                    response = _a.sent();
+                    return [2 /*return*/, response.data];
+                case 2:
+                    e_2 = _a.sent();
+                    throw new Error('Could not find specification with the given ID.');
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+};

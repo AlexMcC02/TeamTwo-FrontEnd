@@ -62,4 +62,24 @@ module.exports = function (app) {
             }
         });
     }); });
+    app.get('/job_roles/:id', function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+        var data, e_2;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, jobRoleService.getSpecificationById(req.params.id)];
+                case 1:
+                    data = _a.sent();
+                    return [3 /*break*/, 3];
+                case 2:
+                    e_2 = _a.sent();
+                    console.error(e_2);
+                    return [3 /*break*/, 3];
+                case 3:
+                    res.render('view-jobrole-specification', { jobRole: data });
+                    return [2 /*return*/];
+            }
+        });
+    }); });
 };
