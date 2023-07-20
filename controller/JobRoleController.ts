@@ -7,10 +7,10 @@ module.exports = function(app: Application) {
         let data = [];
 
         try {
-                data = await jobRoleService.getJobRoles() 
-            } catch (e) {
-                console.error(e);
-            }
-            res.render('list-jobroles', { jobRoles: data } )
+              data = await jobRoleService.getJobRoles() 
+          } catch (e) {
+              console.error(e);
+          }
+          res.render('list-jobroles', { jobRoles: data } )
     })
 }
