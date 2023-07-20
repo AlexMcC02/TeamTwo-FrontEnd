@@ -4,6 +4,7 @@ var chai = require('chai')
 const expect = chai.expect
 const JobRoleService = require('../../../service/JobRoleService');
 //const { test } = require('node:test');
+const { Test } = require('mocha');
 
 const jobrole = {
     id: "1",
@@ -18,6 +19,7 @@ const capability = {
     capability: "Engineering"
 }
 
+Test
 describe('JobRoleService', function () {
     describe('getJobRoles', function () {
         it('should return jobroles from response', async () => {
@@ -34,6 +36,7 @@ describe('JobRoleService', function () {
     })
 })
 
+Test
 describe('JobRoleService', function () {
     describe('getCapability', function () {
         it('should return capabilities from response', async () => {
