@@ -1,7 +1,7 @@
 const { Builder, By, Key, until } = require('selenium-webdriver');
 
 
-async function runTest() {
+async function JobRolesUITest() {
 
   const driver = await new Builder().forBrowser('chrome').build();
 
@@ -16,9 +16,9 @@ async function runTest() {
     const expectedText = 'View Job Roles';
 
     if (actualText === expectedText) {
-      console.log('Job Role UI Test Successful,  "View Job Roles" found');
+      console.log('\u001B[32m✔ Job Role UI Test Successful, "View Job Roles" found\u001B[0m');
     } else {
-      console.log('Test Failed. Expected:', expectedText, 'Actual:', actualText);
+      console.log('\u001B[31mTest Failed. Expected:', expectedText, 'Actual:', actualText, '\u001B[0m');
     }
   } catch (error) {
     console.error('An error occurred:', error);
@@ -28,4 +28,4 @@ async function runTest() {
   }
 }
 
-runTest();
+JobRolesUITest();
