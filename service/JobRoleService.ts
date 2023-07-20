@@ -8,3 +8,12 @@ module.exports.getJobRoles = async function() {
         throw new Error('Could not get job roles.')
     }
 }
+
+module.exports.getCapability = async function() {
+    try {
+        const response = await axios.get('http://localhost:8080/api/capability')
+        return response.data
+    } catch (e) {
+        throw new Error('Could not get capabilities.')
+    }
+}
