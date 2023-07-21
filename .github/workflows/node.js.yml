@@ -12,6 +12,9 @@ on:
 jobs:
   build:
 
+    env:
+      UI_URL: ${{ secrets.UI_URL }}
+
     runs-on: ubuntu-latest
 
     strategy:
