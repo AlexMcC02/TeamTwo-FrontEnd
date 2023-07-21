@@ -10,6 +10,8 @@ module.exports = function(app: Application) {
               data = await jobRoleService.getJobRoles() 
           } catch (e) {
               console.error(e);
+              res.locals.errormessage = "Failed to fetch JobRoles"
+              return res.render('list-jobroles', req.body)
           }
           res.render('list-jobroles', { jobRoles: data } )
     })

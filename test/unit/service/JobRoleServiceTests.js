@@ -2,7 +2,7 @@ var axios = require('axios');
 var MockAdapter = require('axios-mock-adapter')
 var chai = require('chai')
 const expect = chai.expect
-const JobRoleService = require('../../../service/JobRoleService')
+const JobRoleService = require('../../../service/JobRoleService.ts')
 
 const jobrole = {
     id: "1",
