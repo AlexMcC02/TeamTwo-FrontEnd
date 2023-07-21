@@ -1,30 +1,38 @@
+const webdriver = require('selenium-webdriver');
+const chai = require('chai');  
+const { Test } = require('mocha');
 
 
-async function JobRolesUITest() {
+Test
+describe('JobRolesUITest', async () => {
 
-  const driver = await new Builder().forBrowser('chrome').build();
+  it('should check if elements on the JobRoles page are present', async () => {
 
-  try {
+    var driver = new webdriver.Builder().
+      withCapabilities(webdriver.Capabilities.chrome()).
+      build();
 
-    await driver.get('http://localhost:3000/job_roles');
+      await driver.get(process.env.http://localhost:3000);
+      
+      await driver.findElement(webdriver.By.id('header')).getText().then(function(value) {
+        chai.assert.equal(value, 'View Job Roles')
+      }));
+      await driver.findElement(webdriver.By.id('jobs')).getText().then(function(value) {
+        chai.assert.equal(value, 'Jobs')
+      });
+      await driver.findElement(webdriver.By.id('name')).getText().then(function(value) {
+        chai.assert.equal(value, 'Name')
+      });
+      await driver.findElement(webdriver.By.id('specification')).getText().then(function(value) {
+        chai.assert.equal(value, 'Specification')
+      });
+      await driver.findElement(webdriver.By.id('bandid')).getText().then(function(value) {
+        chai.assert.equal(value, 'BandID')
+      });
+      await driver.findElement(webdriver.By.id('capabilityid')).getText().then(function(value) {
+        chai.assert.equal(value, 'CapabilityID')
+      });
 
-    const textElement = await driver.findElement(By.xpath("//h1[normalize-space()='View Job Roles']"));
-
-    const actualText = await textElement.getText();
-
-    const expectedText = 'View Job Roles';
-
-    if (actualText === expectedText) {
-      console.log('\u001B[32m✔ Job Role UI Test Successful, "View Job Roles" found\u001B[0m');
-    } else {
-      console.log('\u001B[31mTest Failed. Expected:', expectedText, 'Actual:', actualText, '\u001B[0m');
-    }
-  } catch (error) {
-    console.error('An error occurred:', error);
-  } finally {
-
-    await driver.quit();
-  }
-}
-
-JobRolesUITest();
+  await driver.quit();
+});
+});
