@@ -13,22 +13,22 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>View Job Roles</h1>
+                    <h1 id="header">View Job Roles</h1>
                 </div>
             </div>
         </div>
     </header>
     <main class="container mt-4">
-        <section id="products" class="mt-4">
+        <section id="jobs" class="mt-4">
             <h2>Jobs</h2>
             {% if jobRoles and jobRoles.length > 0 %}
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Specification</th>
-                        <th scope="col">BandID</th>
-                        <th scope="col">CapabilityID</th>
+                        <th scope="col" id="name">Name</th>
+                        <th scope="col" id="specification">Specification</th>
+                        <th scope="col" id="bandid">BandID</th>
+                        <th scope="col" id="capabilityid">CapabilityID</th>
                     </tr>
                 </thead>
                 <tbody>
