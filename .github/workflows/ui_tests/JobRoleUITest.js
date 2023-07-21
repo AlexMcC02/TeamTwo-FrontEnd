@@ -1,9 +1,8 @@
 const webdriver = require('selenium-webdriver');
 const chai = require('chai');  
-const { Test } = require('mocha');
 
 
-Test
+
 describe('JobRolesUITest', async () => {
 
   it('should check if elements on the JobRoles page are present', async () => {
@@ -12,11 +11,11 @@ describe('JobRolesUITest', async () => {
       withCapabilities(webdriver.Capabilities.chrome()).
       build();
 
-      await driver.get(process.env.http://localhost:3000);
+      await driver.get(process.env.UI_TEST_URL);
       
       await driver.findElement(webdriver.By.id('header')).getText().then(function(value) {
         chai.assert.equal(value, 'View Job Roles')
-      }));
+      });
       await driver.findElement(webdriver.By.id('jobs')).getText().then(function(value) {
         chai.assert.equal(value, 'Jobs')
       });
@@ -32,7 +31,6 @@ describe('JobRolesUITest', async () => {
       await driver.findElement(webdriver.By.id('capabilityid')).getText().then(function(value) {
         chai.assert.equal(value, 'CapabilityID')
       });
-
   await driver.quit();
 });
 });

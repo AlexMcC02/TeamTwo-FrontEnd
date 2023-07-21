@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "npx tsc && cp -R views dist && node dist/app.js",
-    "test": "mocha test/unit/**/*.ts --require ts-node/register --exit",
-    "test-ui": "mocha --timeout 10000 test/ui_tests/*.js"
+    "start": "npx tsc && cp -R views dist && node app.js",
+    "test": "mocha test/unit/**/*.js", 
+    "test-ui": "mocha --timeout 10000 .github/workflows/ui_tests/*.js"
   },
   "repository": {
     "type": "git",
