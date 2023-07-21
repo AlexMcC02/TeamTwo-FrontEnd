@@ -1,4 +1,4 @@
 export class Capability {
-    roleName?: string
-    capability?: string
+    roleName: string
+    capability: string
 }

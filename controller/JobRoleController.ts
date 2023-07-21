@@ -23,6 +23,7 @@ module.exports = function(app: Application) {
                 data = await jobRoleService.getCapability() 
             } catch (e) {
                 console.error(e);
+                res.locals.errormessage = e.message;
             }
             res.render('list-capabilities', { capabilities: data } )
     })

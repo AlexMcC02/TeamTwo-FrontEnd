@@ -2,8 +2,7 @@ var axios = require('axios');
 var MockAdapter = require('axios-mock-adapter')
 var chai = require('chai')
 const expect = chai.expect
-const JobRoleService = require('../../../service/JobRoleService');
-//const { test } = require('node:test');
+const JobRoleService = require('../../../dist/service/JobRoleService');
 const { Test } = require('mocha');
 
 const jobrole = {
@@ -49,6 +48,20 @@ describe('JobRoleService', function () {
             var results = await JobRoleService.getCapability();
     
             expect(results[0]).to.deep.equal(capability)
+          })
+        it('should throw exception when 500 error returned from axios', async () => {
+            var mock = new MockAdapter(axios);
+    
+            mock.onGet(JobRoleService.URL).reply(500);
+    
+            var error;
+            try {
+                await JobRoleService.getCapability();
+            } catch (e) {
+                var error = e.message
+            }
+            
+            expect(error).to.equal('Could not get capabilities.')
           })
     })
 })
