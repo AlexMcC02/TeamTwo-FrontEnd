@@ -24,4 +24,15 @@ describe('JobRoleService', function () {
             expect(results[0]).to.deep.equal(jobrole)
           })
     })
+    describe('getJobRoles', function () {
+        it('should return exception when 500 error returned from axios', async () => {
+            var mock = new MockAdapter(axios);
+    
+            mock.onGet(JobRoleService.URL).reply(500);
+    
+            var error = await JobRoleService.getJobRoles();
+    
+            expect(error.message).to.equal('Could not get job roles.')
+          })
+    }) 
 })
