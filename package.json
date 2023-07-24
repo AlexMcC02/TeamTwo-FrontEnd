@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kamil-biegaj/16tables-frontend.git"
+    "url": "git+https://github.com/AlexMcC02/TeamTwo-FrontEnd.git.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kamil-biegaj/16tables-frontend/issues"
+    "url": "https://github.com/AlexMcC02/TeamTwo-FrontEnd.git/issues"
   },
-  "homepage": "https://github.com/kamil-biegaj/16tables-frontend#readme",
+  "homepage": "https://github.com/AlexMcC02/TeamTwo-FrontEnd.git#readme",
   "dependencies": {
     "@types/express-session": "^1.17.7",
     "assert": "^2.0.0",
