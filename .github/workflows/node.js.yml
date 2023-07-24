@@ -13,7 +13,7 @@ jobs:
   build:
 
     env:
-      UI_URL: ${{ secrets.UI_URL }}
+      UI_URL: ${{ secrets.API_URL }}
 
     runs-on: ubuntu-latest
 
