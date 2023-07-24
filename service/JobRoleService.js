@@ -64,6 +64,7 @@ module.exports.getSpecificationById = function (id) {
                     return [4 /*yield*/, axios.get('http://localhost:8080/api/job_roles/' + id)];
                 case 1:
                     response = _a.sent();
+                    console.log(process.env.UI_IRL);
                     return [2 /*return*/, response.data];
                 case 2:
                     e_2 = _a.sent();
