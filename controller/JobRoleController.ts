@@ -7,11 +7,13 @@ module.exports = function(app: Application) {
         let data = [];
 
         try {
-                data = await jobRoleService.getJobRoles() 
-            } catch (e) {
-                console.error(e);
-            }
-            res.render('list-jobroles', { jobRoles: data } )
+              data = await jobRoleService.getJobRoles() 
+          } catch (e) {
+              console.error(e);
+              res.locals.errormessage = "Failed to fetch JobRoles"
+              return res.render('list-jobroles', req.body)
+          }
+          res.render('list-jobroles', { jobRoles: data } )
     })
 }
 
@@ -23,7 +25,8 @@ module.exports = function(app: Application) {
                 data = await jobRoleService.getCapability() 
             } catch (e) {
                 console.error(e);
-                res.locals.errormessage = e.message;
+                res.locals.errormessage = "Failed to fetch capabilities"
+                return res.render('list-capabilities', req.body);
             }
             res.render('list-capabilities', { capabilities: data } )
     })

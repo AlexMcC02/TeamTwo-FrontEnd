@@ -8,9 +8,7 @@ const { Test } = require('mocha');
 const jobrole = {
     id: "1",
     name: "Software Engineer",
-    specification: "Does coding.",
-    capabilityID: "1",
-    bandID: "1"
+    specification: "Does coding."
 }
 
 const capability = {
@@ -18,7 +16,6 @@ const capability = {
     capability: "Engineering"
 }
 
-Test
 describe('JobRoleService', function () {
     describe('getJobRoles', function () {
         it('should return jobroles from response', async () => {
@@ -33,6 +30,17 @@ describe('JobRoleService', function () {
             expect(results[0]).to.deep.equal(jobrole)
           })
     })
+    describe('getJobRoles', function () {
+        it('should return exception when 500 error returned from axios', async () => {
+            var mock = new MockAdapter(axios);
+    
+            mock.onGet(JobRoleService.URL).reply(500);
+    
+            var error = await JobRoleService.getJobRoles();
+    
+            expect(error.message).to.equal('Could not get job roles.')
+          })
+    }) 
 })
 
 Test
