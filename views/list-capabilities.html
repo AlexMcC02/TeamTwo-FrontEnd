@@ -19,6 +19,9 @@
         </div>
     </header>
     <main class="container mt-4">
+        {% if errormessage %} 
+            <div id="view-capabilities-error" class="text-danger">{{ errormessage }}</div> 
+        {% endif %}
         <section id="products" class="mt-4">
             <h2>Capabilities</h2>
             {% if capabilities and capabilities.length > 0 %}

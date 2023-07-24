@@ -26,6 +26,7 @@ app.listen(3000, () => {
 
 app.get('/', (req, res) => {
     res.render('list-jobroles')
+    res.render('list-capabilities')
 })
 
 require("./controller/JobRoleController")(app);

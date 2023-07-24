@@ -19,6 +19,9 @@
         </div>
     </header>
     <main class="container mt-4">
+        {% if errormessage %} 
+            <div id="view-job_roles-error" class="text-danger">{{ errormessage }}</div> 
+        {% endif %}
         <section id="products" class="mt-4">
             <h2>Jobs</h2>
             {% if jobRoles and jobRoles.length > 0 %}
@@ -27,8 +30,6 @@
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Specification</th>
-                        <th scope="col">BandID</th>
-                        <th scope="col">CapabilityID</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,8 +37,6 @@
                     <tr>
                         <td>{{ jobRole.name }}</td>
                         <td>{{ jobRole.specification}}</td>
-                        <td>{{ jobRole.bandID }}</td>
-                        <td>{{ jobRole.capabilityID }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -52,4 +51,5 @@
     </script>
 </body>
 
+</html>
 </html>
