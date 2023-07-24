@@ -28,4 +28,5 @@ app.get('/', (req, res) => {
     res.render('list-jobroles')
 })
 
+
 require("./controller/JobRoleController")(app);
