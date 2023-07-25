@@ -1,0 +1,56 @@
+//NOT CORRECT CODE, JUST PLACE HOLDER
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>View Jobs</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </meta>
+</head>
+
+<body>
+    <header class="bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>View Jobs</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container mt-4">
+        <section id="products" class="mt-4">
+            <h2>Jobs</h2>
+            {% if jobs and jobs.length > 0 %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col"></th>
+                        <th scope="col">Bank Account Number</th>
+                        <th scope="col">National Insurance Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for deliveryEmployee in deliveryEmployees %}
+                    <tr>
+                        <td>{{ jobs.name }}</td>
+                        <td>{{jobs.specification}}</td>
+                        <td>{{ jobs.bandLevel }}</td>
+                        <td>{{ jobs.capability }}</td>
+                        <!-- <td><a href='/delivery-employees/{{ deliveryEmployee.id }}'>View</a></td>
+                        <td><a href='/delivery-employees/delete/{{ deliveryEmployee.id }}'>Delete</a></td> -->
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+            {% else %}
+            There are no jobs.
+            {% endif %}
+        </section>
+    </main>
+</body>
+
+</html>
