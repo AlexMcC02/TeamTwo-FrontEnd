@@ -12,7 +12,6 @@ const nunjucksConfig = {
     autoescape: true,
     noCache: true,
     express: app
-    
 }
 
 nunjucks.configure(appViews, nunjucksConfig)
@@ -30,3 +29,7 @@ app.get('/', (req, res) => {
 })
 
 require("./controller/JobRoleController")(app);
+
+export {
+    app
+}
