@@ -15,4 +15,17 @@ module.exports = function(app: Application) {
           }
           res.render('list-jobroles', { jobRoles: data } )
     })
+
+    app.get('/band_levels', async (req, res) => {
+        let data = [];
+
+        try {
+            data = await jobRoleService.getBandLevels()
+        } catch (e) {
+            console.error(e)
+            res.locals.error = "Failed to get BandLevels"
+            return res.render('list-bandlevels', req.body)
+        }
+        res.render('list-bandlevels', { bandLevels: data})
+    })
 }

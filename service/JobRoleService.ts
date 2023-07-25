@@ -8,3 +8,12 @@ module.exports.getJobRoles = async function() {
         return new Error('Could not get job roles.')
     }
 }
+
+module.exports.getBandLevels = async function() {
+    try {
+        const response = await axios.get(process.env.UI_URL + '/api/band_levels')
+        return response.data 
+    } catch(e) {
+        return new Error('Could not get band levels.')
+    }
+}
