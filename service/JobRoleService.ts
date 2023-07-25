@@ -1,6 +1,5 @@
-import { JobRole } from "../model/JobRole";
-
 const axios = require('axios');
+import { JobRole } from "../model/JobRole";
 
 module.exports.getJobRoles = async function() {
     try {
@@ -11,11 +10,12 @@ module.exports.getJobRoles = async function() {
     }
 }
 
-module.exports.createJobRole = async function (jobrole: JobRole): Promise<number> {
+module.exports.createJobRole = async function(jobRole: JobRole): Promise<number> {
     try {
-        const response = await axios.post('http://localhost:8080/api/job_roles', jobrole)
+        const response = await axios.post('http://localhost:8080/api/job_roles', jobRole)
         return response.data
     } catch (e) {
         throw new Error('Could not create job role.')
     }
 }
+

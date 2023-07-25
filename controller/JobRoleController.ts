@@ -21,15 +21,17 @@ module.exports = function(app: Application) {
 
     app.post('/add-jobrole', async (req: Request, res: Response) => {
         let data: JobRole = req.body
-        //let data = req.body
+        
         let id: Number
 
         try {
             id = await jobRoleService.createJobRole(data)
-
+            
             res.redirect('/job_roles')
         } catch (e) {
             console.error(e);
+
+            res.locals.errormessage = e.message
 
             res.render('add-jobrole')
         }
