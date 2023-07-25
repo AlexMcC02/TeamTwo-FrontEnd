@@ -12,17 +12,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Specification</h1>
+                    <h1 id="specificationHeader">Specification</h1>
                 </div>
             </div>
         </div>
     </header>
     <main class="container mt-4">
-        <section id="specification" class="mt-4">
+        <section id="specificationSection" class="mt-4">
             {% if jobRole %}
-            <h2>Name</h2>
+            <h2 id = "name">Name</h2>
             {{ jobRole.name }}
-            <h2>Specification</h2>
+            <h2 id = "specification">Specification</h2>
             <td><a href="{{ jobRole.specification}}">Link</a></td>
            
             
