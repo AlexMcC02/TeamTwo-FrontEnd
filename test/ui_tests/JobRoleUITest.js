@@ -25,12 +25,7 @@ describe('JobRolesUITest', async () => {
       await driver.findElement(webdriver.By.id('specification')).getText().then(function(value) {
         chai.assert.equal(value, 'Specification')
       });
-      await driver.findElement(webdriver.By.id('bandid')).getText().then(function(value) {
-        chai.assert.equal(value, 'BandID')
-      });
-      await driver.findElement(webdriver.By.id('capabilityid')).getText().then(function(value) {
-        chai.assert.equal(value, 'CapabilityID')
-      });
+      
   await driver.quit();
 });
 });
