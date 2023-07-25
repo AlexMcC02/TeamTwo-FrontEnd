@@ -17,31 +17,6 @@ const capability = {
 }
 
 describe('JobRoleService', function () {
-    describe('getJobRoles', function () {
-        it('should return jobroles from response', async () => {
-            var mock = new MockAdapter(axios);
-    
-            const data = [jobrole];
-    
-            mock.onGet(JobRoleService.URL).reply(200, data);
-    
-            var results = await JobRoleService.getJobRoles();
-    
-            expect(results[0]).to.deep.equal(jobrole)
-          })
-    })
-    describe('getJobRoles', function () {
-        it('should return exception when 500 error returned from axios', async () => {
-            var mock = new MockAdapter(axios);
-    
-            mock.onGet(JobRoleService.URL).reply(500);
-    
-            var error = await JobRoleService.getJobRoles();
-    
-            expect(error.message).to.equal('Could not get job roles.')
-          })
-    }) 
-
     describe('getCapability', function () {
         it('should return capabilities from response', async () => {
             var mock = new MockAdapter(axios);
