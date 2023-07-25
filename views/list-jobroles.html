@@ -29,14 +29,12 @@
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
-                        <th scope="col">Specification</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for jobRole in jobRoles %}
                     <tr>
                         <td>{{ jobRole.name }}</td>
-                        <td>{{ jobRole.specification}}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
