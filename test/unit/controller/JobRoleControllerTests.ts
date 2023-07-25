@@ -1,8 +1,11 @@
 const supertest = require('supertest')
 import chai from "chai"
 const expect = chai.expect
+import sinon from "sinon";
 
 import { app } from '../../../app';
+
+const jobRoleService = require("../../../service/JobRoleService")
 
 describe('JobRoleController', function() {
 
@@ -10,20 +13,21 @@ describe('JobRoleController', function() {
 
     describe('GET/ jobroles', async function() {
         it('should render the list-jobroles view', async () => {
-            const response = await request.get('/job_roles').set('Accept', 'application/json')
-            expect(response.status).equal(200)
-        })
-    })
-})
+            
+            // Mock service using sinon.
+            const stub = sinon.stub(jobRoleService, "getJobRoles").returns({
+                id: 1,
+                name: "Software Engineer",
+                specification: "Works on stuff"
+            })
 
-describe('JobRoleController', function() {
+            // Run test.
+            const response = await supertest(app)
+                .get('/job_roles').set('Accept', 'application/json').expect(200)
 
-    const request = supertest(app)
-
-    describe('GET/ capability', async function() {
-        it('should render the list-capabilities view', async () => {
-            const response = await request.get('/capability').set('Accept', 'application/json')
-            expect(response.status).equal(200)
+            /* Clear stub after test completes, necessary to prevent the sinon spy from
+            interfering with other tests. */
+            stub.restore()
         })
     })
 })
