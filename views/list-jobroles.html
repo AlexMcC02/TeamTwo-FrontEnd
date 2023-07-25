@@ -27,6 +27,7 @@
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Specification</th>
+                        <th scope="col">Specification Link</th>
                         <th scope="col">BandID</th>
                         <th scope="col">CapabilityID</th>
                     </tr>
@@ -36,9 +37,9 @@
                     <tr>
                         <td>{{ jobRole.name }}</td>
                         <td>{{ jobRole.specification}}</td>
+                        <td><a href='/job_roles/{{ jobRole.id }}'>Specification</a></td>
                         <td>{{ jobRole.bandID }}</td>
                         <td>{{ jobRole.capabilityID }}</td>
-                        <td><a href='/job_roles/{{ jobRole.id }}'>Specification</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

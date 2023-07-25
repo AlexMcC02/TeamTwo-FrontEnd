@@ -19,11 +19,13 @@
     </header>
     <main class="container mt-4">
         <section id="specification" class="mt-4">
-            {% if 1==1 %}
+            {% if jobRole %}
             <h2>Name</h2>
             {{ jobRole.name }}
             <h2>Specification</h2>
-            {{ jobRole.specification}}
+            <td><a href="{{ jobRole.specification}}">Link</a></td>
+           
+            
          
             {% else %}
             Could not find Specification.

@@ -4,7 +4,7 @@ import { JobRole } from "../model/JobRole";
 const jobRoleService = require('../service/JobRoleService')
 
 module.exports = function(app: Application) {
-    app.get('/job_roles', async (req, res) => {
+    app.get('/job_roles', async (req: Request, res: Response) => {
         let data = [];
 
         try {
@@ -15,7 +15,7 @@ module.exports = function(app: Application) {
             res.render('list-jobroles', { jobRoles: data } )
     })
 
-    app.get('/job_roles/:id', async (req, res) => {
+    app.get('/job_roles/:id', async (req: Request, res: Response) => {
         let data: JobRole;
 
         try {
