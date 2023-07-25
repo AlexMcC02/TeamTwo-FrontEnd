@@ -41,10 +41,7 @@ describe('JobRoleService', function () {
             expect(error.message).to.equal('Could not get job roles.')
           })
     }) 
-})
 
-Test
-describe('JobRoleService', function () {
     describe('getCapability', function () {
         it('should return capabilities from response', async () => {
             var mock = new MockAdapter(axios);
