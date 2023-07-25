@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Job Role</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </meta>
+</head>
+
+<body>
+    <header class="bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Add Job Role</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container mt-4">
+        <section id="form" class="mt-4">
+            <div class="container">
+                <p>Enter Job Role Details</p>
+                <form action="/add-jobrole" method="post">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter Job Role Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="specification">Specification</label>
+                        <input type="text" class="form-control" id="specification" name="specification" placeholder="Enter Job Role Specification">
+                    </div>
+                    <div class="form-group">
+                        <label for="band">Band</label>
+                        <input type="text" class="form-control" id="band" name="band" placeholder="Enter Job Role Band">
+                    </div>
+                    <div class="form-group">
+                        <label for="capability">Capability</label>
+                        <input type="text" class="form-control" id="capability" name="capability" placeholder="Enter Job Role Capability">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            
+        </section>
+    </main>
+    <script>
+        src="public/script.js"
+    </script>
+</body>
+
+</html>
