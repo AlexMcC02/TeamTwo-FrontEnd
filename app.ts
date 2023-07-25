@@ -29,3 +29,7 @@ app.get('/', (req, res) => {
 })
 
 require("./controller/JobRoleController")(app);
+
+export {
+    app
+}
