@@ -4,7 +4,7 @@
   "main": "app.js",
   "scripts": {
     "start": "npx tsc && cp -R views dist && node dist/app.js",
-    "test": "mocha test/unit/**/*.js", 
+    "test": "mocha test/unit/**/*.js",
     "test-ui": "mocha --timeout 10000 test/ui_tests/*.js"
   },
   "repository": {
