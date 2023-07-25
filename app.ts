@@ -1,8 +1,10 @@
+import { Application } from "express";
+
 const express = require('express')
 const path = require('path')
 const nunjucks = require('nunjucks')
 
-const app = express();
+const app: Application = express();
 
 const appViews = path.join(__dirname, '/views/')
 
@@ -22,6 +24,8 @@ app.listen(3000, () => {
     console.log('Server listening on port 3000')
 })
 
+app.get('/', (req, res) => {
+    res.render('list-jobroles')
+})
 
-
-require("./controller/JobRoleController")(app)
+require("./controller/JobRoleController")(app);
