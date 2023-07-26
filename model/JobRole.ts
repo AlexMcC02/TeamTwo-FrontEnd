@@ -5,3 +5,5 @@ export class JobRole {
     bandId: number
     capabilityId: number
 }
+
+//blueprint for creating objects that represent job roles

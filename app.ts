@@ -14,6 +14,7 @@ const nunjucksConfig = {
 
 nunjucks.configure(appViews, nunjucksConfig)
 
+
 app.set('view engine', 'html')
 
 app.use('/public', express.static(path.join(__dirname, 'public')))
@@ -29,3 +30,4 @@ app.listen(3000, () => {
  
 require("./controller/JobRoleController")(app)
 require("./controller/BandController")(app)
+require("./controller/CapabilityController")(app)
