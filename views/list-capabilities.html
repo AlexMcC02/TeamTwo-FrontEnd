@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>View Capabilities</title>
+    <title id="title">View Capabilities</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     </meta>
 </head>
@@ -13,7 +13,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>View Capabilities</h1>
+                    <h1 id="header">View Capabilities</h1>
                 </div>
             </div>
         </div>
@@ -23,13 +23,13 @@
             <div id="view-capabilities-error" class="text-danger">{{ errormessage }}</div> 
         {% endif %}
         <section id="products" class="mt-4">
-            <h2>Capabilities</h2>
+            <h2 id="capabilities">Capabilities</h2>
             {% if capabilities and capabilities.length > 0 %}
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Job Role</th>
-                        <th scope="col">Capability</th>
+                        <th scope="col" id="jobRole">Job Role</th>
+                        <th scope="col" id="capability">Capability</th>
                     </tr>
                 </thead>
                 <tbody>
