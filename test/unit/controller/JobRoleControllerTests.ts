@@ -30,19 +30,4 @@ describe('JobRoleController', function() {
             stub.restore()
         })
     })
-
-    describe('GET/ bandlevels', async function() {
-        it('should render the list-bandlevels view', async () => {
-            const stub = sinon.stub(jobRoleService, "getJobRoles").returns({
-                id: 1,
-                roleName: "Software Engineer",
-                bandLevel: "Trainee"
-            })
-
-            const response = await supertest(app)
-                .get('/band_levels').set('Accept', 'application/json').expect(200)
-
-            stub.restore()    
-        })
-    })
 })

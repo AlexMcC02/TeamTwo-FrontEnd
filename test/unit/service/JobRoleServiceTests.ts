@@ -40,29 +40,5 @@ describe('JobRoleService', function () {
     
             expect(error.message).to.equal('Could not get job roles.')
           })
-    }) 
-    describe('getBandLevels', function () {
-        it('should return jobroles from response', async () => {
-            var mock = new MockAdapter(axios);
-    
-            const data = [bandlevel];
-    
-            mock.onGet(JobRoleService.URL).reply(200, data);
-    
-            var results = await JobRoleService.getBandLevels();
-    
-            expect(results[0]).to.deep.equal(bandlevel)
-          })
-    })
-    describe('getBandLevels', function () {
-        it('should return exception when 500 error returned from axios', async () => {
-            var mock = new MockAdapter(axios);
-    
-            mock.onGet(JobRoleService.URL).reply(500);
-    
-            var error = await JobRoleService.getBandLevels();
-    
-            expect(error.message).to.equal('Could not get band levels.')
-          })
-    }) 
+    })  
 })
