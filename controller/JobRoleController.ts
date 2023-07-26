@@ -16,18 +16,3 @@ module.exports = function(app: Application) {
           res.render('list-jobroles', { jobRoles: data } )
     })
 }
-
-module.exports = function(app: Application) {
-    app.get('/capability', async (req, res) => {
-        let data = [];
-
-        try {
-                data = await jobRoleService.getCapability() 
-            } catch (e) {
-                console.error(e);
-                res.locals.errormessage = "Failed to fetch capabilities"
-                return res.render('list-capabilities', req.body);
-            }
-            res.render('list-capabilities', { capabilities: data } )
-    })
-}
