@@ -36,11 +36,12 @@ describe('JobSpecificationUITest', async () =>
       await driver.findElement(webdriver.By.id('specificationHeader')).getText().then(function(value) {
         chai.assert.equal(value, 'Specification')
       });
-      // await driver.findElement(webdriver.By.id('name')).getText().then(function(value) {
-      //   chai.assert.equal(value, 'Name')
-      // });
-      // await driver.findElement(webdriver.By.id('specification')).getText().then(function(value) {
-      //   chai.assert.equal(value, 'Specification')
-      // });
+
+      await driver.findElement(webdriver.By.id('backToSalesEmployeeButton')).getText().then(function(value) {
+        chai.assert.equal(value, 'Back to sales employees')
+      });
+
+      await driver.findElement(webdriver.By.id('backToSalesEmployeeButton')).click();
+      
   await driver.quit();
 }));
