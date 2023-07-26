@@ -1,47 +1,39 @@
-import axios from 'axios'
+var axios = require('axios');
 var MockAdapter = require('axios-mock-adapter')
-var chai = require('chai')
+import chai from 'chai'
 const expect = chai.expect
-const JobRoleService = require('../../../service/JobRoleService.ts');
-const { Test } = require('mocha');
+const JobRoleService = require('../../../service/JobRoleService.ts')
 
 const jobrole = {
     id: "1",
     name: "Software Engineer",
-    specification: "Does coding."
-}
-
-const capability = {
-    roleName: "Software Engineering",
-    capability: "Engineering"
+    specification: "Does coding.",
+    capability: "Digital Services"
 }
 
 describe('JobRoleService', function () {
-    describe('getCapability', function () {
-        it('should return capabilities from response', async () => {
+    describe('getJobRoles', function () {
+        it('should return jobroles from response', async () => {
             var mock = new MockAdapter(axios);
     
-            const data = [capability];
+            const data = [jobrole];
     
             mock.onGet(JobRoleService.URL).reply(200, data);
     
-            var results = await JobRoleService.getCapability();
+            var results = await JobRoleService.getJobRoles();
     
-            expect(results[0]).to.deep.equal(capability)
+            expect(results[0]).to.deep.equal(jobrole)
           })
-        it('should throw exception when 500 error returned from axios', async () => {
+    })
+    describe('getJobRoles', function () {
+        it('should return exception when 500 error returned from axios', async () => {
             var mock = new MockAdapter(axios);
     
             mock.onGet(JobRoleService.URL).reply(500);
     
-            var error;
-            try {
-                await JobRoleService.getCapability();
-            } catch (e) {
-                var error = e.message
-            }
-            
-            expect(error).to.equal('Could not get capabilities.')
+            var error = await JobRoleService.getJobRoles();
+    
+            expect(error.message).to.equal('Could not get job roles.')
           })
-    })
+    }) 
 })
