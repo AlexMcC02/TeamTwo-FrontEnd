@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
 </head>
 
+
 <body>
     <header class="bg-dark text-light">
         <div class="container">
@@ -22,17 +23,23 @@
             {% if jobRole %}
             <h2>Name</h2>
             {{ jobRole.name }}
+            <h2>Intro</h2>
+            {{ Intro}}
             <h2>Specification</h2>
-            <td><a href="{{ jobRole.specification}}">Link</a></td>
+            
+            {{ Summary}}
+            <h2>Link:</h2>
+            <td><a href="{{ Link }}">Link</a></td>
+            
            
             
          
             {% else %}
-            Could not find Specification.
+            Could not find specification with the given ID.
             {% endif %}
         </section>
         <div class="mt-2">
-            <a href='/job_roles/' class="btn btn-primary">Back to sales employees</a>
+            <a href='/job_roles/' class="btn btn-primary">Back to Job Roles</a>
         </div>
     </main>
 </body>
