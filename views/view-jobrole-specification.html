@@ -18,14 +18,14 @@
         </div>
     </header>
     <main class="container mt-4">
-        <section id="specification" class="mt-4">
+        <section id="specificationSection" class="mt-4">
             {% if jobRoleSpec %}
-            <h2>Name</h2>
+            <h2 id="name">Name</h2>
             {{ jobRoleSpec.name }}
-            <h2>Specification</h2>
+            <h2 id="specification">Specification</h2>
             {{jobRoleSpec.specification}}
-            <h2>Link:</h2>
-            <td><a href="{{ jobRoleSpec.urlLink }}">Link</a></td>
+            <h2 id="linkTitle">Link:</h2>
+            <td><a href="{{ jobRoleSpec.urlLink }}" id="link">Link</a></td>
             
            
             
@@ -35,7 +35,7 @@
             {% endif %}
         </section>
         <div class="mt-2">
-            <a href='/job_roles/' class="btn btn-primary" id="backToSalesEmployeeButton">Back to sales employees</a>
+            <a href='/job_roles/' class="btn btn-primary" id="backToJobRolesButton">Back to Job Roles</a>
         </div>
     </main>
 </body>
