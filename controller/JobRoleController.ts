@@ -64,7 +64,7 @@ module.exports = function(app: Application) {
             bands = await BandService.getBands() 
             capabilitys = await CapabilityService.getCapabilities()
             let data: JobRole = await jobRoleService.getJobRoleById(req.params.id);
-            res.render('edit-jobrole', { jobRole: data });
+            res.render('edit-jobrole', { jobRole: data, bands: bands, capabilitys: capabilitys });
           } catch (e) {
               console.error(e);
           }
