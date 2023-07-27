@@ -3,9 +3,9 @@ const chai = require('chai');
 
 
 
-describe('JobRolesUITest', async () => {
+describe('JobRoleUITest', async () => {
 
-  it('should check if elements on the JobRoles page are present', async () => {
+  it('should check if JobRole are elements on the JobRole page are present', async () => {
 
     var driver = new webdriver.Builder().
       withCapabilities(webdriver.Capabilities.chrome()).
@@ -25,7 +25,10 @@ describe('JobRolesUITest', async () => {
       await driver.findElement(webdriver.By.id('specification')).getText().then(function(value) {
         chai.assert.equal(value, 'Specification')
       });
+      await driver.findElement(webdriver.By.id('capability')).getText().then(function(value) {
+        chai.assert.equal(value, 'Capability')
+      });
       
   await driver.quit();
-});
+})
 });
