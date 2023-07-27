@@ -11,18 +11,18 @@ module.exports.getJobRoles = async function() {
     }
 }
 
-// module.exports.getJobRoleById = async function(id: number) {
-//     try {
-//         const response = await axios.get(process.env.UI_URL + '/api/job_roles/' + id)
-//         return response.data
-//     } catch (e) {
-//         throw new Error('Could not get job role.')
-//     }
-// }
-
-module.exports.updateJobRole = async function(id: number, updatedJobRole: JobRole) {
+module.exports.getJobRoleById = async function(id: number) {
     try {
-        const response = await axios.put(process.env.UI_URL + '/api/job_roles/' + id, updatedJobRole)
+        const response = await axios.get(process.env.UI_URL + '/api/job_roles/' + id)
+        return response.data
+    } catch (e) {
+        throw new Error('Could not get job role.')
+    }
+}
+
+module.exports.updateJobRole = async function(jobRole: JobRole) {
+    try {
+        const response = await axios.put(process.env.UI_URL + '/api/job_roles/' + jobRole.id, jobRole)
         return response.data
     } catch (e) {
         throw new Error('Could not update job role.')

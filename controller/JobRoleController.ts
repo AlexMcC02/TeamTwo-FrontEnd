@@ -1,4 +1,5 @@
 import { Application, Request, Response } from "express";
+import { JobRole } from "../model/JobRole";
 
 const jobRoleService = require('../service/JobRoleService')
 
@@ -16,28 +17,26 @@ module.exports = function(app: Application) {
           res.render('list-jobroles', { jobRoles: data } )
     })
 
-    // app.get('/job_roles/:id', async (req, res) => {
-
-    //     try {
-    //         const jobRole = await jobRoleService.getJobeRoleById(req.params.id);
-    //         res.render('edit-jobrole', { jobRole });
-    //       } catch (e) {
-    //           console.error(e);
-    //           res.locals.errormessage = "Failed to fetch JobRole for editing"
-    //           return res.redirect('/job_roles')
-    //       }
-    // })
-
-    app.post('/job_roles/:id', async (req, res) => {
+    app.get('/job_roles/update/:id', async (req: Request, res: Response) => {
 
         try {
-            const jobRole = req.body;
-            await jobRoleService.updateJobRole(req.params.id, jobRole);
-            res.redirect('/job_roles')
+            let data: JobRole = await jobRoleService.getJobRoleById(req.params.id);
+            res.render('edit-jobrole', { jobRole: data });
+          } catch (e) {
+              console.error(e);
+          }
+    })
+
+    app.put('/job_roles/update/:id', async (req: Request, res: Response) => {
+        let data: JobRole = req.body;
+        data.id = +req.params.id;
+
+        try {
+            await jobRoleService.updateJobRole(data);
+            res.redirect('/job_roles/' + data.id)
           } catch (e) {
               console.error(e);
               res.locals.errormessage = "Failed to fetch update JobRole"
-              return res.render('edit-jobrole', { jobRole: req.body })
           }
     })
 }
