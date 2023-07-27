@@ -22,9 +22,6 @@
         {% if errormessage %} 
             <div id="view-job_roles-error" class="text-danger">{{ errormessage }}</div> 
         {% endif %}
-        {% if errormessage %} 
-            <div id="view-job_roles-error" class="text-danger">{{ errormessage }}</div> 
-        {% endif %}
         <section id="products" class="mt-4">
             <h2 id = "jobs">Jobs</h2>
             {% if jobRoles and jobRoles.length > 0 %}
@@ -33,8 +30,8 @@
                     <tr>
                         <th scope="col" id = "name">Name</th>
                         <th scope="col" id = "specification">Specification</th>
-                        <th scope="col">Capability</th>
-                        <th scope="col">Band Level</th>
+                        <th scope="col" id="capability">Capability</th>
+                        <th scope="col" id="bandlevel">Band Level</th>
                     </tr>
                 </thead>
                 <tbody>
