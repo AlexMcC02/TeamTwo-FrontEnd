@@ -22,30 +22,22 @@
         {% if errormessage %} 
             <div id="view-job_roles-error" class="text-danger">{{ errormessage }}</div> 
         {% endif %}
-        {% if errormessage %} 
-            <div id="view-job_roles-error" class="text-danger">{{ errormessage }}</div> 
-        {% endif %}
         <section id="products" class="mt-4">
             <h2 id="jobs">Jobs</h2>
             {% if jobRoles and jobRoles.length > 0 %}
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col" id="name">Name</th>
-                        <th scope="col" id="specification">Specification</th>
-                        <th scope="col" id="specificationLink">Specification Link</th>
-                        <th scope="col" id="bandID">BandID</th>
-                        <th scope="col" id="capabilityID">CapabilityID</th>
+                        <th scope="col" id = "name">Name</th>
+
                     </tr>
                 </thead>
                 <tbody>
                     {% for jobRole in jobRoles %}
-                    <tr>
-                        <td>{{ jobRole.name }}</td>
-                        <td>{{ jobRole.specification}}</td>
-                        <td id = "specificationButton"><a href='/job_roles/{{ jobRole.id }}'>Specification</a></td>
-                        <td>{{ jobRole.bandID }}</td>
-                        <td>{{ jobRole.capabilityID }}</td>
+                    <tr>             
+                        <td><a href='/job_roles/{{ jobRole.id }}'>{{ jobRole.name }}</a></td>
+
+
                     </tr>
                     {% endfor %}
                 </tbody>
