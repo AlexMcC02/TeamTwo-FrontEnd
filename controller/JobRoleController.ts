@@ -25,29 +25,6 @@ module.exports = function(app: Application) {
           res.render('list-jobroles', { jobRoles: data } )
     })
 
-    app.get('/job_roles/update/:id', async (req: Request, res: Response) => {
-
-        try {
-            let data: JobRole = await jobRoleService.getJobRoleById(req.params.id);
-            res.render('edit-jobrole', { jobRole: data });
-          } catch (e) {
-              console.error(e);
-          }
-    })
-
-    app.put('/job_roles/update/:id', async (req: Request, res: Response) => {
-        let data: JobRole = req.body;
-        data.id = +req.params.id;
-
-        try {
-            await jobRoleService.updateJobRole(data);
-            res.redirect('/job_roles/' + data.id)
-          } catch (e) {
-              console.error(e);
-              res.locals.errormessage = "Failed to fetch update JobRole"
-          }
-    })
-    
     app.get('/add-jobrole', async (req: Request, res: Response) => {
         let bands = [];
         let capabilitys = [];
@@ -78,5 +55,31 @@ module.exports = function(app: Application) {
             res.render('add-jobrole')
         }
     })
-}
 
+    app.get('/job_roles/update/:id', async (req: Request, res: Response) => {
+        let bands = [];
+        let capabilitys = [];
+
+        try {
+            bands = await BandService.getBands() 
+            capabilitys = await CapabilityService.getCapabilities()
+            let data: JobRole = await jobRoleService.getJobRoleById(req.params.id);
+            res.render('edit-jobrole', { jobRole: data });
+          } catch (e) {
+              console.error(e);
+          }
+    })
+
+    app.put('/job_roles/update/:id', async (req: Request, res: Response) => {
+        let data: JobRole = req.body;
+        data.id = +req.params.id;
+
+        try {
+            await jobRoleService.updateJobRole(data);
+            res.redirect('/job_roles/' + data.id)
+          } catch (e) {
+              console.error(e);
+              res.locals.errormessage = "Failed to fetch update JobRole"
+          }
+    })
+}
