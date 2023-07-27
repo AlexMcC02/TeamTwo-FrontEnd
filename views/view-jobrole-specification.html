@@ -20,16 +20,13 @@
     </header>
     <main class="container mt-4">
         <section id="specification" class="mt-4">
-            {% if jobRole %}
+            {% if jobRoleSpec %}
             <h2>Name</h2>
-            {{ jobRole.name }}
-            <h2>Intro</h2>
-            {{ Intro}}
+            {{ jobRoleSpec.name }}
             <h2>Specification</h2>
-            
-            {{ Summary}}
+            {{jobRoleSpec.specification}}
             <h2>Link:</h2>
-            <td><a href="{{ Link }}">Link</a></td>
+            <td><a href="{{ jobRoleSpec.urlLink }}">Link</a></td>
             
            
             
