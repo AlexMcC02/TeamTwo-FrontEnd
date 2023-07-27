@@ -1,5 +1,5 @@
 import { Application, Request, Response } from "express";
-import { JobRole } from "../model/JobRole";
+import { JobRoleSpec } from "../model/JobRoleSpec";
 
 const jobRoleService = require('../service/JobRoleService')
 
@@ -18,14 +18,15 @@ module.exports = function(app: Application) {
     })
 
     app.get('/job_roles/:id', async (req: Request, res: Response) => {
-        let data: JobRole;
+        let data: JobRoleSpec;
 
         try {
                 data = await jobRoleService.getSpecificationById(req.params.id) 
+                
             } catch (e) {
                 console.error(e);
                 res.locals.errormessage = e.message;
             }
-            res.render('view-jobrole-specification', { jobRole: data } )
+            res.render('view-jobrole-specification', { jobRoleSpec: data } )
     })
 }
