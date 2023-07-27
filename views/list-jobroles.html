@@ -13,7 +13,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>View Job Roles</h1>
+                    <h1 id = "header">View Job Roles</h1>
                 </div>
             </div>
         </div>
@@ -22,14 +22,17 @@
         {% if errormessage %} 
             <div id="view-job_roles-error" class="text-danger">{{ errormessage }}</div> 
         {% endif %}
+        {% if errormessage %} 
+            <div id="view-job_roles-error" class="text-danger">{{ errormessage }}</div> 
+        {% endif %}
         <section id="products" class="mt-4">
-            <h2>Jobs</h2>
+            <h2 id = "jobs">Jobs</h2>
             {% if jobRoles and jobRoles.length > 0 %}
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Specification</th>
+                        <th scope="col" id = "name">Name</th>
+                        <th scope="col" id = "specification">Specification</th>
                         <th scope="col">Capability</th>
                         <th scope="col">Band Level</th>
                     </tr>
