@@ -33,7 +33,6 @@ module.exports = function(app: Application) {
         } catch (e) {
             console.error(e);
         }
-        //res.render('add-jobrole', { bands: bands })
         res.render('add-jobrole', { bands: bands, capabilitys: capabilitys  })
     })
 

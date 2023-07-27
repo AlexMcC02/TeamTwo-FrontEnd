@@ -15,7 +15,6 @@ module.exports.getJobRoles = async function() {
 module.exports.createJobRole = async function(jobRole: JobRole): Promise<number> {
     try {
         const response = await axios.post('http://localhost:8080/api/job_roles', jobRole)
-        console.log(response.data)
         return response.data
     } catch (e) {
         throw new Error('Could not create job role.')
