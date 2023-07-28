@@ -9,7 +9,8 @@ const jobRoleService = require('../../../service/JobRoleService');
 const mockJobRole = {
   id: 1,
   name: 'Software Engineer',
-  specification: 'Intro$Summary$Link',
+  specification: 'Makes and breaks stuff',
+  urlLink: 'https://google.com'
 };
 
 describe('JobRoleController', function () {
