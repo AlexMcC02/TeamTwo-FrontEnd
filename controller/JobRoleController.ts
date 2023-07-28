@@ -52,34 +52,47 @@ module.exports = function(app: Application) {
 
             res.locals.errormessage = e.message
 
-            res.render('add-jobrole')
+            res.render('add-jobrole')   
         }
     })
 
     app.get('/job_roles/update/:id', async (req: Request, res: Response) => {
+        const jobRoleID = req.params.id
         let bands = [];
         let capabilitys = [];
 
         try {
             bands = await BandService.getBands() 
             capabilitys = await CapabilityService.getCapabilities()
-            let data: JobRole = await jobRoleService.getJobRoleById(req.params.id);
-            res.render('edit-jobrole', { jobRole: data, bands: bands, capabilitys: capabilitys });
+            const JobRole = await jobRoleService.getJobRoleById(jobRoleID)
+            res.render('edit-jobrole', { jobRole: JobRole, bands: bands, capabilitys: capabilitys });
           } catch (e) {
               console.error(e);
+              res.status(500).send('Internal server error')
           }
     })
 
-    app.put('/job_roles/update/:id', async (req: Request, res: Response) => {
-        let data: JobRole = req.body;
-        data.id = +req.params.id;
+    app.post('/job_roles/update/:id', async (req: Request, res: Response) => {
+        const jobId = req.params.id;
+        const data: JobRole = req.body;
 
+    try {
+        await jobRoleService.updateJobRole(jobId, data);
+        res.redirect('/job_roles');
+    } catch (e) {
+        console.error(e);
+        res.locals.errormessage = e.message;
+
+        let bands = [];
+        let capabilitys = [];
         try {
-            await jobRoleService.updateJobRole(data);
-            res.redirect('/job_roles/' + data.id)
-          } catch (e) {
-              console.error(e);
-              res.locals.errormessage = "Failed to fetch update JobRole"
-          }
+            bands = await BandService.getBands();
+            capabilitys = await CapabilityService.getCapabilities();
+        } catch (e) {
+            console.error(e);
+        }
+
+        res.render('edit-jobrole', { jobRole: data, bands: bands, capabilitys: capabilitys });
+        }
     })
 }
