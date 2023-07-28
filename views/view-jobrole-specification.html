@@ -19,6 +19,9 @@
         </div>
     </header>
     <main class="container mt-4">
+        {% if errormessage %} 
+        <div id="view-job_roles-error" class="text-danger">{{ errormessage }}</div> 
+        {% endif %}
         <section id="specification" class="mt-4">
             {% if jobRoleSpec %}
             <h2>Name</h2>
