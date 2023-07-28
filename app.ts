@@ -4,7 +4,7 @@ const express = require('express')
 const path = require('path')
 const nunjucks = require('nunjucks')
 
-const app: Application = express();
+export const app: Application = express();
 
 const appViews = path.join(__dirname, '/views/')
 
@@ -30,6 +30,3 @@ app.get('/', (req, res) => {
 
 require("./controller/JobRoleController")(app);
 
-export {
-    app
-}
