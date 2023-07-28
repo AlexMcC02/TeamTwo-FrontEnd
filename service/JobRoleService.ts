@@ -29,9 +29,9 @@ module.exports.getJobRoleById = async function(id: number) {
     }
 }
 
-module.exports.updateJobRole = async function(jobRole: JobRole) {
+module.exports.updateJobRole = async function(id: number, jobRole: JobRole) {
     try {
-        const response = await axios.put(process.env.UI_URL + '/api/job_roles/' + jobRole.id, jobRole)
+        const response = await axios.put(process.env.UI_URL + '/api/job_roles/' + id, jobRole)
         return response.data
     } catch (e) {
         throw new Error('Could not update job role.')

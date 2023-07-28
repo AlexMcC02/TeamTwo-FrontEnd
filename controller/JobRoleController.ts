@@ -57,14 +57,14 @@ module.exports = function(app: Application) {
     })
 
     app.get('/job_roles/update/:id', async (req: Request, res: Response) => {
-        const jobRoleID = req.params.id
+        let jobRoleID = req.params.id
         let bands = [];
         let capabilitys = [];
 
         try {
             bands = await BandService.getBands() 
             capabilitys = await CapabilityService.getCapabilities()
-            const JobRole = await jobRoleService.getJobRoleById(jobRoleID)
+            let JobRole = await jobRoleService.getJobRoleById(jobRoleID)
             res.render('edit-jobrole', { jobRole: JobRole, bands: bands, capabilitys: capabilitys });
           } catch (e) {
               console.error(e);
@@ -72,9 +72,9 @@ module.exports = function(app: Application) {
           }
     })
 
-    app.post('/job_roles/update/:id', async (req: Request, res: Response) => {
-        const jobId = req.params.id;
-        const data: JobRole = req.body;
+    app.put('/job_roles/update/:id', async (req: Request, res: Response) => {
+        let jobId = req.params.id;
+        let data: JobRole = req.body;
 
     try {
         await jobRoleService.updateJobRole(jobId, data);
