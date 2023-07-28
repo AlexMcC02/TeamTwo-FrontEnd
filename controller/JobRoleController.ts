@@ -72,7 +72,7 @@ module.exports = function(app: Application) {
           }
     })
 
-    app.put('/job_roles/update/:id', async (req: Request, res: Response) => {
+    app.post('/job_roles/update/:id', async (req: Request, res: Response) => {
         let jobId = req.params.id;
         let data: JobRole = req.body;
 

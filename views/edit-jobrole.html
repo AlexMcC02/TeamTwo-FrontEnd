@@ -22,7 +22,7 @@
         {% if errormessage %} 
             <div class="text-danger">{{ errormessage }}</div> 
         {% endif %}
-        <form method="put" action="/job_roles/update/{{ jobRole.id }}">
+        <form method="post" action="/job_roles/update/{{ jobRole.id }}">
             <div class="form-group">
                 <label for="name">Job Role Name: </label> 
                 <input type="text" class="form-control" id="name" name="name" value="{{ jobRole.name }}" required>
