@@ -25,25 +25,15 @@ module.exports.getJobRoleById = async function(id: number) {
         const response = await axios.get(process.env.UI_URL + '/api/job_roles/' + id)
         return response.data
     } catch (e) {
-        throw new Error('Could not get job role.')
+        return new Error('Could not get job role.')
     }
 }
 
 module.exports.updateJobRole = async function(id: number, jobRole: JobRole) {
     try {
         const response = await axios.put(process.env.UI_URL + '/api/job_roles/' + id, jobRole)
-        return response.data
     } catch (e) {
-        throw new Error('Could not update job role.')
+        console.log(e)
+        return new Error('Could not update job role.')
     }
 }
-
-
-//The service layer is responsible for communicating with the backend API.
-
-
-//these functions serve as wrappers around Axios HTTP requests, 
-// allowing the application to fetch job roles from the API (getJobRoles) 
-// and create new job roles by sending data to the API (createJobRole). 
-// The functions encapsulate the error handling logic and 
-// throw custom errors if something goes wrong during the API requests.
