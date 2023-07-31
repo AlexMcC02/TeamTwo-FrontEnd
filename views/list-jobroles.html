@@ -40,6 +40,9 @@
                     <tr>
                         <td>{{ jobRole.name }}</td>
                         <td>{{ jobRole.specification}}</td>
+                        <td>
+                            <button class="btn btn-danger" onclick="deleteJobRole('{{ jobRole.id }}')">Delete</button>
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -51,7 +54,24 @@
     </main>
     <script>
         src="public/script.js"
+        function deleteJobRole(jobRoleId) {
+            if (confirm("Are you sure you want to delete this job role?")) {
+                fetch(`/job_roles/${jobRoleId}`, {
+                    method : "DELETE",
+                })
+                .then((response) => {
+                    if (response.ok) {
+                        location.reload();
+                    } else {
+                        throw new Error("Failed to delete job role");
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                    alert("Failed to delete job role.");
+                });
+            }
+        }
     </script>
 </body>
-
 </html>
