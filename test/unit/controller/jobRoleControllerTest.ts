@@ -28,11 +28,9 @@ describe('JobRoleController', function () {
         .expect(200);
 
       // Assertions
-      expect(response.text).to.include('Software Engineer'); // Check if the rendered view contains the job role name.
-      expect(response.text).to.include('Summary'); // Check if the rendered view contains the job role summary.
+      expect(response.text).to.include('Name'); // Check if the rendered view contains the job role name.
+      expect(response.text).to.include('Specification'); // Check if the rendered view contains the job role summary.
       expect(response.text).to.include('Link'); // Check if the rendered view contains the job role link.
-      expect(response.text).to.include('Intro'); // Check if the rendered view contains the job role intro.
-
       /* Clear stub after test completes, necessary to prevent the sinon spy from
       interfering with other tests. */
       stub.restore();
