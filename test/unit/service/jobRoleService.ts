@@ -12,9 +12,6 @@ const jobroleSpec = {
     urlLink: "https://www.google.com"
     
 }
-
-
-
     describe('getSpecificationById', function () {
         it('should return job role specification from response', async () => {
 

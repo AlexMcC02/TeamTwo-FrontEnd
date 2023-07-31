@@ -18,7 +18,10 @@
         </div>
     </header>
     <main class="container mt-4">
-        <section id="specificationSection" class="mt-4">
+        {% if errormessage %} 
+        <div id="view-job_roles-error" class="text-danger">{{ errormessage }}</div> 
+        {% endif %}
+        <section id="specification" class="mt-4">
             {% if jobRoleSpec %}
             <h2 id="name">Name</h2>
             {{ jobRoleSpec.name }}
