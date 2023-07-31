@@ -5,7 +5,8 @@
   "scripts": {
     "start": "npx tsc && cp -R views dist && node dist/app.js",
     "test": "mocha test/unit/**/*.ts --require ts-node/register --exit",
-    "test-ui": "mocha --timeout 10000 test/ui_tests/*.js"
+    "test-ui": "mocha --timeout 10000 test/ui_tests/*.js",
+    "test-accessibility": "npx pa11y-ci"
   },
   "repository": {
     "type": "git",
