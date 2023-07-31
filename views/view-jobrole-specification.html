@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Search results</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <header class="bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Specification</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container mt-4">
+        {% if errormessage %} 
+        <div id="view-job_roles-error" class="text-danger">{{ errormessage }}</div> 
+        {% endif %}
+        <section id="specification" class="mt-4">
+            {% if jobRoleSpec %}
+            <h2>Name</h2>
+            {{ jobRoleSpec.name }}
+            <h2>Specification</h2>
+            {{jobRoleSpec.specification}}
+            <h2>Link:</h2>
+            <td><a href="{{ jobRoleSpec.urlLink }}">Link</a></td>
+            {% else %}
+            Could not find specification with the given ID.
+            {% endif %}
+        </section>
+        <div class="mt-2">
+            <a href='/job_roles/' class="btn btn-primary">Back to Job Roles</a>
+        </div>
+    </main>
+</body>
+
+</html>
