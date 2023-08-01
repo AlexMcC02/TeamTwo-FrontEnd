@@ -28,8 +28,8 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col" id ="name">Name</th>
-                        <th scope="col" id ="specification">Specification</th>
+                        <th scope="col" id="name">Name</th>
+                        <th scope="col" id="specification">Specification</th>
                         <th scope="col" id="capability">Capability</th>
                         <th scope="col" id="bandLevel">Band Level</th>
                     </tr>
@@ -38,9 +38,9 @@
                     {% for jobRole in jobRoles %}
                     <tr>             
                         <td><a href='/job_roles/{{ jobRole.id }}' id="specificationLink">{{ jobRole.name }}</a></td>
-                        <td>{{ jobRole.specification}}</td>
-                        <td>{{ jobRole.capability}}</td>
-                        <td>{{ jobRole.bandLevel}}</td>
+                        <td>{{ jobRole.specification }}</td>
+                        <td>{{ jobRole.capability }}</td>
+                        <td>{{ jobRole.bandLevel }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -54,6 +54,4 @@
         src="public/script.js"
     </script>
 </body>
-
-</html>
 </html>

@@ -10,13 +10,17 @@ const jobrole = {
     specification: "Does coding."
 }
 
+const bandlevel = {
+    id: "1",
+    roleName: "Software Engineer",
+    bandLevel: "Manager"
+}
+
 const jobroleSpec = {
-   
     id: "1",
     name: "Software Engineer",
     specification: "Does coding.",
     urlLink: "https://www.google.com"
-    
 }
 
 describe('JobRoleService', function () {
@@ -43,7 +47,7 @@ describe('JobRoleService', function () {
 
             expect(error.message).to.equal('Could not get job roles.')
           })
-    }) 
+    })   
     describe('getSpecificationById', function () {
         it('should return job role specification from response', async () => {
 
