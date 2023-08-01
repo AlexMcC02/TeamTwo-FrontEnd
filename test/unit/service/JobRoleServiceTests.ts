@@ -4,6 +4,12 @@ import chai from 'chai'
 const expect = chai.expect
 const JobRoleService = require('../../../service/JobRoleService.ts')
 
+const jobrole = {
+    id: "1",
+    name: "Software Engineer",
+    specification: "Does coding."
+}
+
 const jobroleSpec = {
    
     id: "1",
@@ -12,6 +18,32 @@ const jobroleSpec = {
     urlLink: "https://www.google.com"
     
 }
+
+describe('JobRoleService', function () {
+    describe('getJobRoles', function () {
+        it('should return jobroles from response', async () => {
+            var mock = new MockAdapter(axios);
+
+            const data = [jobrole];
+
+            mock.onGet(JobRoleService.URL).reply(200, data);
+
+            var results = await JobRoleService.getJobRoles();
+
+            expect(results[0]).to.deep.equal(jobrole)
+          })
+    })
+    describe('getJobRoles', function () {
+        it('should return exception when 500 error returned from axios', async () => {
+            var mock = new MockAdapter(axios);
+
+            mock.onGet(JobRoleService.URL).reply(500);
+
+            var error = await JobRoleService.getJobRoles();
+
+            expect(error.message).to.equal('Could not get job roles.')
+          })
+    }) 
     describe('getSpecificationById', function () {
         it('should return job role specification from response', async () => {
 
@@ -42,3 +74,4 @@ const jobroleSpec = {
             }
         });
     });
+});

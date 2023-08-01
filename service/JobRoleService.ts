@@ -15,7 +15,6 @@ module.exports.getSpecificationById = async function (id: number) {
         
         return response.data;
     } catch (e) {
-        console.log('Could not get specification with ID ' + id + '.');
         throw new Error('Could not find specification with the given ID.');
 
     }
