@@ -29,13 +29,16 @@
                 <thead>
                     <tr>
                         <th scope="col" id = "name">Name</th>
-
+                        <th scope="col" id = "specification">Specification</th>
+                        <th scope="col" id = "capability">Capability</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for jobRole in jobRoles %}
                     <tr>             
                         <td><a href='/job_roles/{{ jobRole.id }}'>{{ jobRole.name }}</a></td>
+                        <td>{{ jobRole.specification}}</td>
+                        <td>{{ jobRole.capability}}</td>
 
 
                     </tr>
@@ -52,4 +55,5 @@
     </script>
 </body>
 
+</html>
 </html>
