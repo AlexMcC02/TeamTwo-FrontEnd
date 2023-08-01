@@ -6,5 +6,3 @@ export class JobRole {
     capabilityId: number
     urlLink: string
 }
-
-//blueprint for creating objects that represent job roles

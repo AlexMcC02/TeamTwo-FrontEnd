@@ -4,6 +4,7 @@
         "target": "es5",
         "sourceMap": true,
         "noImplicitAny": true,
+        "esModuleInterop": true
     },
     "include": ["./**/*"],
     "exclude": [

@@ -6,11 +6,6 @@ const BandService = require('../service/BandService')
 const CapabilityService = require('../service/CapabilityService')
 
 
-// the controller layer is responsible for handling HTTP requests and responses.
-//doesnt talk to backend API directly
-//instead, it uses the service layer to fetch data from the API and
-//render HTML templates using the data
-
 module.exports = function(app: Application) {
     app.get('/job_roles', async (req, res) => {
         let data = [];
@@ -53,5 +48,6 @@ module.exports = function(app: Application) {
             res.render('add-jobrole')
         }
     })
+
 }
 

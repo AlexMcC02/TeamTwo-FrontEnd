@@ -8,6 +8,6 @@ module.exports.getBands = async function() {
         
         return response.data
     } catch (e) {
-        throw new Error('Could not get Band Levels.')
+        return new Error('Could not get Band Levels.')
     }
 }
