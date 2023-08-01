@@ -25,4 +25,8 @@ npm run test
 UI Tests:
 
 export UI_TEST_URL=http://localhost:3000/job_roles && npm run test-ui
+
+Accessibility Tests:
+
+npm run test-accessibility
 ------------------------------------------------------------
