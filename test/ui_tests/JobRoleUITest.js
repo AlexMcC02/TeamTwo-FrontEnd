@@ -3,9 +3,9 @@ const chai = require('chai');
 
 
 
-describe('JobRolesUITest', async () => {
+describe('JobRoleUITest', async () => {
 
-  it('should check if elements on the JobRoles page are present', async () => {
+  it('should check if JobRole are elements on the JobRole page are present', async () => {
 
     var driver = new webdriver.Builder().
       withCapabilities(webdriver.Capabilities.chrome()).
@@ -22,10 +22,33 @@ describe('JobRolesUITest', async () => {
       await driver.findElement(webdriver.By.id('name')).getText().then(function(value) {
         chai.assert.equal(value, 'Name')
       });
+      await driver.findElement(webdriver.By.id('capability')).getText().then(function(value) {
+        chai.assert.equal(value, 'Capability')
+      });
+      // specification page navigation
+      await driver.findElement(webdriver.By.id('specificationLink')).click();
+
+      await driver.findElement(webdriver.By.id('name')).getText().then(function(value) {
+        chai.assert.equal(value, 'Name')
+      });
       await driver.findElement(webdriver.By.id('specification')).getText().then(function(value) {
         chai.assert.equal(value, 'Specification')
       });
+      await driver.findElement(webdriver.By.id('linkTitle')).getText().then(function(value) {
+        chai.assert.equal(value, 'Link:')
+      });
+
+      await driver.findElement(webdriver.By.id('link')).click()
+
+      await driver.navigate().back();
+
+      await driver.findElement(webdriver.By.id('backToJobRolesButton')).getText().then(function(value) {
+        chai.assert.equal(value, 'Back to Job Roles')
+      });
+
+      await driver.findElement(webdriver.By.id('backToJobRolesButton')).click()
+
       
   await driver.quit();
-});
+})
 });

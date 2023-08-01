@@ -9,6 +9,18 @@ module.exports.getJobRoles = async function() {
     }
 }
 
+module.exports.getSpecificationById = async function (id: number) { 
+    try {
+        const response = await axios.get(process.env.UI_URL + '/api/job_roles/' + id)
+        
+        return response.data;
+    } catch (e) {
+        throw new Error('Could not find specification with the given ID.');
+
+    }
+}
+
+
 module.exports.deleteJobRole = async function(id: number) {
     try {
         const response = await axios.delete(process.env.UI_URL + '/api/job_roles/'  + id)
