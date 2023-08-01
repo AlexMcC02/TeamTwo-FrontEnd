@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Add Job Role</title>
+    <title id="title">Add Job Role</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     </meta>
 </head>
@@ -13,7 +13,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Add Job Role</h1>
+                    <h1 id="header">Add Job Role</h1>
                 </div>
             </div>
         </div>
@@ -29,20 +29,20 @@
                     {% endif %}
                 <form action="/add-jobrole" method="post">
                     <div class="form-group">
-                        <label for="name">Name</label>
+                        <label id="nameLabel" for="name">Name</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Enter Job Role Name" value="{{name}}" required>
                     </div>
                     <div class="form-group">
-                        <label for="specification">Specification</label>
+                        <label id="specLabel" for="specification">Specification</label>
                         <input type="text" class="form-control" id="specification" name="specification" placeholder="Enter Job Role Specification" value="{{specification}}" required>
                     </div>
                     <div class="form-group">
-                        <label for="urlLink">Sharepoint URL</label>
+                        <label id="urlLabel" for="urlLink">Sharepoint URL</label>
                         <input type="text" class="form-control" id="urlLink" name="urlLink" placeholder="Copy URL for the job Sharepoint page" value="{{urlLink}}" required>
                     </div>
 
 
-                    <p>Please specify the Capability & Band Level for this role</p>
+                    <p id="message">Please specify the Capability & Band Level for this role</p>
                     <div class="form-group">
                         <!-- <label for="capabilityId">Capabilities</label> -->
                     <select class="form-select" aria-label="Default select example" id="capabilitySelect" name="capabilityId" required>
@@ -61,7 +61,7 @@
                         {% endfor %}
                     </select>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
             
