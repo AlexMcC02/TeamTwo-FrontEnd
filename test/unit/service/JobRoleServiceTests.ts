@@ -1,5 +1,5 @@
 import { expect, assert } from "chai";
-import { JobRole } from "../../../model/JobRole";
+import { JobRole } from "../../../model/JobRoleCorrect";
 
 var axios = require('axios');
 var MockAdapter = require('axios-mock-adapter');

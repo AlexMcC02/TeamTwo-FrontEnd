@@ -1,5 +1,5 @@
 const axios = require('axios');
-import { JobRole } from "../model/JobRole";
+import { JobRole } from "../model/JobRoleCorrect";
 //import { JobRoleValidator } from "../validator/JobRoleValidator";
 const jobRoleValidator = require('../validator/JobRoleValidator')
 
