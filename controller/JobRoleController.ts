@@ -1,5 +1,5 @@
 import { Application, Request, Response } from "express";
-import { JobRole } from "../model/JobRoleCorrect";
+import { JobRoleCorrect } from "../model/JobRoleCorrect";
 
 const jobRoleService = require('../service/JobRoleService')
 const BandService = require('../service/BandService')
@@ -32,7 +32,7 @@ module.exports = function(app: Application) {
     })
 
     app.post('/add-jobrole', async (req: Request, res: Response) => {
-        let data: JobRole = req.body
+        let data: JobRoleCorrect = req.body
         
         let id: Number
 

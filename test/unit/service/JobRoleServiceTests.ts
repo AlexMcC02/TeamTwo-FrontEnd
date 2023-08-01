@@ -1,12 +1,12 @@
 import { expect, assert } from "chai";
-import { JobRole } from "../../../model/JobRoleCorrect";
+import { JobRoleCorrect } from "../../../model/JobRoleCorrect";
 
 var axios = require('axios');
 var MockAdapter = require('axios-mock-adapter');
 const JobRoleService = require('../../../service/JobRoleService.ts');
 
 
-const jobrole = {
+const jobroleAdd = {
     id: 1,
     name: "Software Engineer",
     specification: "Does coding",
@@ -36,13 +36,13 @@ describe('JobRoleService', function () {
             var mock = new MockAdapter(axios);
     
             const createdId = 1;
-            const createdJobRole = { ...jobrole, id: createdId };
+            const createdJobRole = { ...jobroleAdd, id: createdId };
     
-            mock.onPost(JobRoleService.URL, jobrole).reply(200, createdJobRole);
+            mock.onPost(JobRoleService.URL, jobroleAdd).reply(200, createdJobRole);
     
             var resultId;
             try {
-                resultId = await JobRoleService.createJobRole(jobrole);
+                resultId = await JobRoleService.createJobRole(jobroleAdd);
                 assert.strictEqual(resultId.id, createdId);
             } catch (error) {
                 assert.fail('Unexpected error: ' + error.message);
@@ -53,10 +53,10 @@ describe('JobRoleService', function () {
         it('should throw an error if the request fails', async () => {
             var mock = new MockAdapter(axios);
 
-            mock.onPost(JobRoleService.URL, jobrole).reply(500);
+            mock.onPost(JobRoleService.URL, jobroleAdd).reply(500);
 
             try {
-                await JobRoleService.createJobRole(jobrole);
+                await JobRoleService.createJobRole(jobroleAdd);
                // assert.fail('Expected an error to be thrown.');
             } catch (error) {
                 assert.strictEqual(error.message, 'Could not create job role.');
@@ -66,7 +66,7 @@ describe('JobRoleService', function () {
         it('should throw an error if the job role is missing a required field', async () => {
             var mock = new MockAdapter(axios);
 
-            const jobrole = {
+            const jobroleAdd = {
                 id: 1,
                 name: "",
                 specification: "Does coding",
@@ -75,7 +75,7 @@ describe('JobRoleService', function () {
                 urlLink: "www.google.com"
             }
       
-            const invalidJobRole = { ...jobrole };
+            const invalidJobRole = { ...jobroleAdd };
       
             try {
               await JobRoleService.createJobRole(invalidJobRole);

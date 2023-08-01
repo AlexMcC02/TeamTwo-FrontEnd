@@ -1,4 +1,4 @@
-export class JobRole {
+export class JobRoleCorrect {
     id: number
     name?: string
     specification: string

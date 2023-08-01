@@ -1,5 +1,5 @@
 const axios = require('axios');
-import { JobRole } from "../model/JobRoleCorrect";
+import { JobRoleCorrect } from "../model/JobRoleCorrect";
 //import { JobRoleValidator } from "../validator/JobRoleValidator";
 const jobRoleValidator = require('../validator/JobRoleValidator')
 
@@ -14,7 +14,7 @@ module.exports.getJobRoles = async function() {
     }
 }
 
-module.exports.createJobRole = async function(jobRole: JobRole): Promise<number> {
+module.exports.createJobRole = async function(jobRole: JobRoleCorrect): Promise<number> {
     const error: string = jobRoleValidator.validateJobRole(jobRole)   
 
     if (error) {
