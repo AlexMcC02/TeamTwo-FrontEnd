@@ -65,9 +65,17 @@ describe('JobRoleService', function () {
 
         it('should throw an error if the job role is missing a required field', async () => {
             var mock = new MockAdapter(axios);
+
+            const jobrole = {
+                id: 1,
+                name: "",
+                specification: "Does coding",
+                bandId: 1,
+                capabilityId: 1,
+                urlLink: "www.google.com"
+            }
       
             const invalidJobRole = { ...jobrole };
-            delete invalidJobRole.name;
       
             try {
               await JobRoleService.createJobRole(invalidJobRole);
