@@ -22,9 +22,32 @@ describe('JobRolesUITest', async () => {
       await driver.findElement(webdriver.By.id('name')).getText().then(function(value) {
         chai.assert.equal(value, 'Name')
       });
+      await driver.findElement(webdriver.By.id('specificationLink')).getText().then(function(value) {
+        chai.assert.equal(value, 'Dr Dre')
+      });
+      // specification page navigation
+      await driver.findElement(webdriver.By.id('specificationLink')).click()
+
+      await driver.findElement(webdriver.By.id('name')).getText().then(function(value) {
+        chai.assert.equal(value, 'Name')
+      });
       await driver.findElement(webdriver.By.id('specification')).getText().then(function(value) {
         chai.assert.equal(value, 'Specification')
       });
+      await driver.findElement(webdriver.By.id('linkTitle')).getText().then(function(value) {
+        chai.assert.equal(value, 'Link:')
+      });
+
+      await driver.findElement(webdriver.By.id('link')).click()
+
+      await driver.navigate().back();
+
+      await driver.findElement(webdriver.By.id('backToJobRolesButton')).getText().then(function(value) {
+        chai.assert.equal(value, 'Back to Job Roles')
+      });
+
+      await driver.findElement(webdriver.By.id('backToJobRolesButton')).click()
+
       
   await driver.quit();
 });

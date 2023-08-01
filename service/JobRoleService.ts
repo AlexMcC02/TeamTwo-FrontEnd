@@ -20,4 +20,3 @@ module.exports.getSpecificationById = async function (id: number) {
 
     }
 }
-

@@ -6,7 +6,6 @@ const jobRoleService = require('../service/JobRoleService')
 module.exports = function(app: Application) {
     app.get('/job_roles', async (req: Request, res: Response) => {
         let data = [];
-  
 
         try {
               data = await jobRoleService.getJobRoles() 
