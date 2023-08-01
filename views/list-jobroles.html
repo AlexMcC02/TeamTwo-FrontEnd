@@ -36,7 +36,7 @@
                 <tbody>
                     {% for jobRole in jobRoles %}
                     <tr>             
-                        <td><a href='/job_roles/{{ jobRole.id }}'>{{ jobRole.name }}</a></td>
+                        <td><a href='/job_roles/{{ jobRole.id }}' id="specificationLink">{{ jobRole.name }}</a></td>
                         <td>{{ jobRole.specification}}</td>
                         <td>{{ jobRole.capability}}</td>
 
