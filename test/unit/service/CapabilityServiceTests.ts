@@ -34,7 +34,7 @@ describe('CapabilityService', function () {
 
             try {
                 await CapabilityService.getCapabilities();
-                //assert.fail('Expected an error to be thrown.');
+                assert.fail('Expected error to be thrown.');
             } catch (error) {
                 assert.strictEqual(error.message, 'Could not get capabilities.');
             }
