@@ -3,12 +3,7 @@ import { JobRole } from "../../../model/JobRole";
 
 var axios = require('axios');
 var MockAdapter = require('axios-mock-adapter');
-//var assert = require('assert');
-//var chai = require('chai');  
-
 const JobRoleService = require('../../../service/JobRoleService.ts');
-//import JobRole from '../../../model/JobRole.ts';
-//const expect = chai.expect;
 
 
 const jobrole = {
@@ -29,7 +24,6 @@ describe('JobRoleService', function () {
 
             try {
                 await JobRoleService.getJobRoles();
-                //assert.strictEqual('Could not get job roles.');
             } catch (error) {
                 assert.equal(error.message, 'Could not get job roles.');
             }
@@ -82,19 +76,6 @@ describe('JobRoleService', function () {
               expect(error.message).contain('name');
             }
           })
-      
-        //   it('should throw an error if the job role has an invalid field', async () => {
-        //     var mock = new MockAdapter(axios);
-      
-        //     const invalidJobRole = { ...jobrole, invalidField: 'invalid' };
-      
-        //     try {
-        //       await JobRoleService.createJobRole(invalidJobRole);
-        //       assert.fail('Expected an error to be thrown.');
-        //     } catch (error) {
-        //       expect(error.message).contain('invalidField');
-        //     }
-        //   })
         })
     })
 
