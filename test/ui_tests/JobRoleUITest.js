@@ -56,6 +56,7 @@
 
 //       await driver.findElement(webdriver.By.id('backToJobRolesButton')).click()
 
-//   await driver.quit();
-// })
-// });
+      
+  await driver.quit();
+})
+});
