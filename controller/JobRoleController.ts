@@ -21,6 +21,20 @@ module.exports = function(app: Application) {
           }
           res.render('list-jobroles', { jobRoles: data } )
     })
+
+    app.get('/job_roles/:id', async (req: Request, res: Response) => {
+        let data: JobRoleSpec;
+
+        try {
+                data = await jobRoleService.getSpecificationById(req.params.id) 
+                
+            } catch (e) {
+                console.error(e);
+                res.locals.errormessage = e.message;
+            }
+            res.render('view-jobrole-specification', { jobRoleSpec: data } )
+    })
+
     app.get('/add-jobrole', async (req: Request, res: Response) => {
         let bands = [];
         let capabilitys = [];
