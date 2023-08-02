@@ -29,4 +29,18 @@ module.exports = function(app: Application) {
             }
             res.render('view-jobrole-specification', { jobRoleSpec: data } )
     })
+
+    app.delete('/job_roles/:id', async (req: Request, res: Response) => {
+        const jobId = req.params.id;
+        let data = [];
+
+        try {
+            await jobRoleService.deleteJobRole(jobId);
+            data = await jobRoleService.getJobRoles();
+        } catch (e) {
+            console.error(e);
+            res.locals.errormessage = "Failed to delete job role"
+        }
+        res.render('list-jobroles', { jobRoles: data } )
+    })
 }

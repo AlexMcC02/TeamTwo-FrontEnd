@@ -19,3 +19,13 @@ module.exports.getSpecificationById = async function (id: number) {
 
     }
 }
+
+
+module.exports.deleteJobRole = async function(id: number) {
+    try {
+        const response = await axios.delete(process.env.UI_URL + '/api/job_roles/'  + id)
+        return response.data
+    } catch (e) {
+        throw new Error('Could not delete job role.'); // Throw the error directly instead of returning it as new Error()
+    }
+}
