@@ -1,8 +1,10 @@
+import { Application } from "express";
+
 const express = require('express')
 const path = require('path')
 const nunjucks = require('nunjucks')
 
-export const app = express();
+export const app: Application = express();
 
 const appViews = path.join(__dirname, '/views/')
 
