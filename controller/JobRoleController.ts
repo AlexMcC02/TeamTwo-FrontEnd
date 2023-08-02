@@ -1,18 +1,15 @@
 import { Application, Request, Response } from "express";
+import { JobRoleSpec } from "../model/JobRoleSpec";
 import { JobRole } from "../model/JobRole";
+import { JobRoleCorrect } from "../model/JobRoleCorrect";
 
 const jobRoleService = require('../service/JobRoleService')
 const BandService = require('../service/BandService')
 const CapabilityService = require('../service/CapabilityService')
 
 
-// the controller layer is responsible for handling HTTP requests and responses.
-//doesnt talk to backend API directly
-//instead, it uses the service layer to fetch data from the API and
-//render HTML templates using the data
-
 module.exports = function(app: Application) {
-    app.get('/job_roles', async (req, res) => {
+    app.get('/job_roles', async (req: Request, res: Response) => {
         let data = [];
 
         try {
@@ -24,7 +21,6 @@ module.exports = function(app: Application) {
           }
           res.render('list-jobroles', { jobRoles: data } )
     })
-
     app.get('/add-jobrole', async (req: Request, res: Response) => {
         let bands = [];
         let capabilitys = [];
@@ -39,7 +35,7 @@ module.exports = function(app: Application) {
     })
 
     app.post('/add-jobrole', async (req: Request, res: Response) => {
-        let data: JobRole = req.body
+        let data: JobRoleCorrect = req.body
         
         let id: Number
 

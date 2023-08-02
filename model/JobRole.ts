@@ -1,10 +1,7 @@
 export class JobRole {
-    id: number
-    name: string
-    specification: string
-    bandId: number
-    capabilityId: number
-    urlLink: string
+    id?: number
+    name?: string
+    specification?: string
+    bandLevel?: string
+    capability?: string
 }
-
-//blueprint for creating objects that represent job roles

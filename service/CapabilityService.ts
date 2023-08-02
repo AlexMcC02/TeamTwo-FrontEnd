@@ -8,6 +8,6 @@ module.exports.getCapabilities = async function() {
 
         return response.data
     } catch (e) {
-        throw new Error('Could not get Capabilities.')
+        throw new Error('Could not get capabilities.')
     }
 }
