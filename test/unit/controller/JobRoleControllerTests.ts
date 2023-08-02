@@ -82,11 +82,4 @@ describe('JobRoleController', function() {
 
             stub.restore()
         })
-
-            /* Clear stub after test completes, necessary to prevent the sinon spy from
-            interfering with other tests. */
-            stub.restore()
-        })
     })
-  });
-})
