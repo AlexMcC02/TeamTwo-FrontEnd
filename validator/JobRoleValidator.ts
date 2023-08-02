@@ -1,6 +1,6 @@
-import { JobRole } from '../model/JobRole';
+import { JobRoleCorrect } from '../model/JobRoleCorrect';
 
-module.exports.validateJobRole = function(jobRole: JobRole): string | null {
+module.exports.validateJobRole = function(jobRole: JobRoleCorrect): string | null {
     if (!jobRole.name) {
       return 'Job role name is required.';
     }
