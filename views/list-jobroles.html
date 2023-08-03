@@ -4,21 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <title>View Job Roles</title>
+    <link rel="icon" href="https://kainos.com/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     </meta>
 </head>
 
 <body>
-    <header class="bg-dark text-light">
+    <header class="p-4 bg-success">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 id="header">View Job Roles</h1>
+                    <h1>
+                        <img src="https://northeurope1-mediap.svc.ms/transform/thumbnail?provider=spo&inputFormat=png&cs=fFNQTw&docid=https%3A%2F%2Fkainossoftwareltd.sharepoint.com%3A443%2F_api%2Fv2.0%2Fdrives%2Fb!UANxfTUBe0W2AWztHWyUr0WzxJDKNehNpQi7pG3gsszzR_iGDZcWRquR2iadJLzc%2Fitems%2F01XRWG2PO2XSBW6PEGZNH2A4PQDMD7Q74P%3Fversion%3DPublished&access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAva2Fpbm9zc29mdHdhcmVsdGQuc2hhcmVwb2ludC5jb21AN2VkOWJkYzctOTY0ZC00ZGMwLTkwODQtODEyYjkwZTA1YzZkIiwiaXNzIjoiMDAwMDAwMDMtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwIiwibmJmIjoiMTY5MTA0MjQwMCIsImV4cCI6IjE2OTEwNjQwMDAiLCJlbmRwb2ludHVybCI6IkpJZXEvNHBwKzFWYVVSOVJGbDJOL0hvUTg3YjU3ZnozYkF1UXk5bk9wdFE9IiwiZW5kcG9pbnR1cmxMZW5ndGgiOiIxMjQiLCJpc2xvb3BiYWNrIjoiVHJ1ZSIsInZlciI6Imhhc2hlZHByb29mdG9rZW4iLCJzaXRlaWQiOiJOMlEzTVRBek5UQXRNREV6TlMwME5UZGlMV0kyTURFdE5tTmxaREZrTm1NNU5HRm0iLCJzaWduaW5fc3RhdGUiOiJbXCJrbXNpXCIsXCJkdmNfY21wXCJdIiwibmFtZWlkIjoiMCMuZnxtZW1iZXJzaGlwfGthbWlsLmJpZWdhakBrYWlub3MuY29tIiwibmlpIjoibWljcm9zb2Z0LnNoYXJlcG9pbnQiLCJpc3VzZXIiOiJ0cnVlIiwiY2FjaGVrZXkiOiIwaC5mfG1lbWJlcnNoaXB8MTAwMzIwMDI3YTIxZTU3MkBsaXZlLmNvbSIsInNpZCI6ImI3MjM0ZjQ0LTNjNWEtNDg2MS1iODhkLWM0YjUyZDhjMjEwMyIsInR0IjoiMCIsImlwYWRkciI6IjE0Ny4xNjEuMTQ1Ljk4In0.fN3cXL4D9KDU59LLaWIxHt7BZBnSTUbr8SwOTCyzDSE&cTag=%22c%3A%7B6F83BCDA-863C-4FCB-A071-F01B07F87F8F%7D%2C4%22&encodeFailures=1&srcWidth=&srcHeight=&width=200&height=50&action=Access"
+                            alt="Kainos" class="img-fluid">
+                    </h1>
                 </div>
             </div>
         </div>
     </header>
-    <main class="container mt-4">
+    <main class="container mt-4" style="font-family: 'Darker Grotesque'">
         {% if errormessage %} 
             <div id="view-job_roles-error" class="text-danger">{{ errormessage }}</div> 
         {% endif %}
@@ -50,6 +57,10 @@
             {% endif %}
         </section>
     </main>
+
+    <footer class="p-3 bg-dark text-white text-right fixed-bottom small">
+        <p>Copyright © 2023 Kainos.</p>
+    </footer>
     <script>
         src="public/script.js"
     </script>
