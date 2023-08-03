@@ -60,9 +60,17 @@ module.exports = function(app: Application) {
             console.error(e);
 
             res.locals.errormessage = e.message
-            res.locals.jobRole = data
-
-            res.render('add-jobrole')
+            let bands = [];
+            let capabilitys = [];
+    
+            try {
+                bands = await BandService.getBands() 
+                capabilitys = await CapabilityService.getCapabilities()
+            } catch (e) {
+                console.error(e);
+            }
+            res.render('add-jobrole', { bands: bands, capabilitys: capabilitys, data  })
+            
         }
     })
 }
