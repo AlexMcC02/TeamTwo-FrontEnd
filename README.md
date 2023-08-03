@@ -25,4 +25,16 @@ npm run test
 UI Tests:
 
 export UI_TEST_URL=http://localhost:3000/job_roles && npm run test-ui
+
+Accessibility Tests:
+
+npm run test-accessibility
+
+^If you get local issuer certs error/ Chromium error
+
+echo $NODE_EXTRA_CA_CERTS 
+
+if empty run:
+
+export NODE_EXTRA_CA_CERTS=/path/to/filename>/kainos-chain.pem  
 ------------------------------------------------------------

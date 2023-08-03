@@ -5,7 +5,8 @@
   "scripts": {
     "start": "npx tsc && cp -R views dist && node dist/app.js",
     "test": "mocha test/unit/**/*.ts --require ts-node/register --exit",
-    "test-ui": "mocha --timeout 10000 test/ui_tests/*.js"
+    "test-ui": "mocha --timeout 10000 test/ui_tests/*.js",
+    "test-accessibility": "npx pa11y-ci"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
     "express-session": "^1.17.3",
     "nunjucks": "^3.2.4",
     "selenium-webdriver": "^4.10.0",
+    "pa11y-ci": "^3.0.1",
     "webdriver-manager": "^12.1.9"
   },
   "devDependencies": {
@@ -42,7 +44,8 @@
     "sinon": "^15.2.0",
     "supertest": "^6.3.3",
     "ts-node": "^10.9.1",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "chromium": "^3.0.3"
   },
   "directories": {
     "test": "test"
