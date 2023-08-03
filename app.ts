@@ -29,5 +29,11 @@ app.listen(3000, () => {
     console.log('Server listening on port 3000')
 })
 
- 
-require("./controller/JobRoleController")(app)
+
+app.get("/index", (req, res) => {
+    res.render("index", {
+    title: "Index",
+  });
+})
+
+require("./controller/JobRoleController")(app);
