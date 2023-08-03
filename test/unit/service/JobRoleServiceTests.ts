@@ -5,8 +5,7 @@ import { JobRoleAdd } from "../../../model/JobRoleAdd";
 import chai from 'chai'
 const JobRoleService = require('../../../service/JobRoleService.ts')
 const JobRoleValidator = require('../../../validator/JobRoleValidator.ts')
-//const { validateJobRole } = require('../../../validator/jobrolevalidator');
-const validateJobRole = require('../../../validator/jobrolevalidator');
+const validateJobRole = require('../../../validator/JobRoleValidator');
 import  sinon  from "sinon";
 chai.should();
 
