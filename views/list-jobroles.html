@@ -42,7 +42,7 @@
                         <td>{{ jobRole.capability }}</td>
                         <td>{{ jobRole.bandLevel }}</td>
                         <td>
-                            <button class="btn btn-danger" onclick="deleteJobRole('{{ jobRole.id }}')">Delete</button>
+                            <button id="deleteButton" class="btn btn-danger" onclick="deleteJobRole('{{ jobRole.id }}')">Delete</button>
                         </td>
                     </tr>
                     {% endfor %}
