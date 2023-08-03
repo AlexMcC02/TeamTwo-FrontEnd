@@ -41,6 +41,9 @@
                         <td>{{ jobRole.specification }}</td>
                         <td>{{ jobRole.capability }}</td>
                         <td>{{ jobRole.bandLevel }}</td>
+                        <td>
+                            <button id="editButton" class="btn btn-primary" onclick="editJobRole('{{jobRole.id}}')">Update</button>
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -52,6 +55,9 @@
     </main>
     <script>
         src="public/script.js"
+        function editJobRole(jobRoleId) {
+            window.location.href = '/job_roles/update/' + jobRoleId;
+        }
     </script>
 </body>
 </html>
