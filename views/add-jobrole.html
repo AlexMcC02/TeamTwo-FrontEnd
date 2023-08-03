@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Job Role</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </meta>
+</head>
+
+<body>
+    <header class="bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Add Job Role</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container mt-4">
+        <section id="form" class="mt-4">
+            <div class="container">
+                <p>Enter Job Role Details</p>
+                {% if errormessage %}
+                <div class="alert alert-danger" role="alert">
+                    {{errormessage}}
+                    </div>
+                    {% endif %}
+                <form action="/add-jobrole" method="post">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter Job Role Name" value="{{name}}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="specification">Specification</label>
+                        <input type="text" class="form-control" id="specification" name="specification" placeholder="Enter Job Role Specification" value="{{specification}}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="urlLink">Sharepoint URL</label>
+                        <input type="text" class="form-control" id="urlLink" name="urlLink" placeholder="Copy URL for the job Sharepoint page" value="{{urlLink}}" required>
+                    </div>
+
+
+                    <p>Please specify the Capability & Band Level for this role</p>
+                    <div class="form-group">
+                        <!-- <label for="capabilityId">Capabilities</label> -->
+                    <select class="form-select" aria-label="Default select example" id="capabilitySelect" name="capabilityId" required>
+                        <option selected value="">Select a Capability</option>
+                        {% for capability in capabilitys %}
+                        <option value="{{ capability.id }}">{{ capability.name }}</option>
+                        {% endfor %}
+                    </select>
+                    </div>
+                    <div class="form-group">
+                        <!-- <label for="bandId">Band</label> -->
+                            <select class="form-select" aria-label="Default select example" id="bandSelect" name="bandId" required>
+                            <option selected value="">Select a Band</option>
+                        {% for band in bands %}
+                        <option value="{{ band.id }}">{{ band.name }}</option>
+                        {% endfor %}
+                    </select>
+                    </div>
+                    <button style=color:#0072ed type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            
+        </section>
+    </main>
+    <script>
+        src="public/script.js"
+    </script>
+</body>
+
+</html>

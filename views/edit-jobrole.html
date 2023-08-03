@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Job Role</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </meta>
+</head>
+
+<body>
+    <header class="bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 id = "header">Edit Job Role</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container mt-4">
+        {% if errormessage %} 
+            <div class="text-danger">{{ errormessage }}</div> 
+        {% endif %}
+        <form method="post" action="/job_roles/update/{{ jobRole.id }}">
+            <div class="form-group">
+                <label id="nameLabel" for="name">Job Role Name: </label> 
+                <input type="text" class="form-control" id="name" name="name" value="{{ jobRole.name }}" required>
+            </div>
+            <div class="form-group">
+                <label id="specLabel"for="specification">Job Role Specification: </label> 
+                <textarea class="form-control" id="specification" name="specification" rows="4" required>{{ jobRole.specification }}</textarea>
+            </div>
+            <div class="form-group">
+                <label id="urlLabel" for="urlLink">Sharepoint URL</label>
+                <input type="text" class="form-control" id="urlLink" name="urlLink" placeholder="Copy URL for the job Sharepoint page" value="{{ jobRole.urlLink}}" required>
+            </div>
+
+            <p id="bandAndCapabilityLabel" >Please specify the Capability & Band Level for this role</p>
+            <div class="form-group">
+            <select class="form-select" aria-label="Default select example" id="capabilitySelect" name="capabilityId" required>
+                <option selected value="">Select a Capability</option>
+                {% for capability in capabilitys %}
+                <option value="{{ capability.id }}">{{ capability.name }}</option>
+                {% endfor %}
+            </select>
+            </div>
+            <div class="form-group">
+                    <select class="form-select" aria-label="Default select example" id="bandSelect" name="bandId" required>
+                    <option selected value="">Select a Band</option>
+                {% for band in bands %}
+                <option value="{{ band.id }}">{{ band.name }}</option>
+                {% endfor %}
+            </select>
+            </div>
+            <button id="updateButton" type="submit" class="btn btn-primary">Update Job Role</button>
+        </form>
+    </main>
+    <script>
+        src="public/script.js"
+    </script>
+</body>
+</html>
