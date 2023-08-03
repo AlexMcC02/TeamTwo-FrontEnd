@@ -76,5 +76,21 @@ describe('JobRoleService', function () {
                 expect(error.message).to.equal('Could not find specification with the given ID.');
             }
         });
+    })
+    describe('deleteJobRole', function () {
+        it('should throw an error when unable to delete job role', async () => {
+          const jobId = "1"; // The ID of the job role to be deleted
+          var mock = new MockAdapter(axios);
+    
+          mock.onDelete(`${JobRoleService.URL}/${jobId}`).reply(500);
+    
+          try {
+            await JobRoleService.deleteJobRole(jobId);
+    
+            expect.fail('Could not delete job role.');
+          } catch (error) {
+            expect(error.message).to.equal('Could not delete job role.');
+          }
+        });
     });
 });

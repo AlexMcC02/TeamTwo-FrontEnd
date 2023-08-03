@@ -109,6 +109,6 @@ describe('JobRoleController', function() {
             // Clean up: restore the original functions
             sinon.restore();
         })
-    })
-  });
-})
+      });
+    });
+  })
