@@ -13,16 +13,28 @@ Swagger working but localhost is not:
 Environment Variables:
 
 CHECK API URL COMMAND:
-"echo $UI_URL"
+echo $UI_URL
 
 SET API URL COMMAND:
-"export UI_URL=http://localhost:8080"
+export UI_URL=http://localhost:8080
 ------------------------------------------------------------
 Unit Tests:
 
-"npm run test"
+npm run test
 
 UI Tests:
 
-"export UI_TEST_URL=URL_FOR_THE_TEST && npm run test-ui"
+export UI_TEST_URL=http://localhost:3000/job_roles && npm run test-ui
+
+Accessibility Tests:
+
+npm run test-accessibility
+
+^If you get local issuer certs error/ Chromium error
+
+echo $NODE_EXTRA_CA_CERTS 
+
+if empty run:
+
+export NODE_EXTRA_CA_CERTS=/path/to/filename>/kainos-chain.pem  
 ------------------------------------------------------------
