@@ -1,6 +1,6 @@
 import { Application, Request, Response } from "express";
 import { JobRoleSpec } from "../model/JobRoleSpec";
-import { JobRoleCorrect } from "../model/JobRoleCorrect";
+import { JobRoleAdd } from "../model/JobRoleAdd";
 
 const jobRoleService = require('../service/JobRoleService')
 const BandService = require('../service/BandService')
@@ -20,6 +20,7 @@ module.exports = function(app: Application) {
           }
           res.render('list-jobroles', { jobRoles: data } )
     })
+
     app.get('/job_roles/:id', async (req: Request, res: Response) => {
         let data: JobRoleSpec;
 
@@ -32,6 +33,7 @@ module.exports = function(app: Application) {
             }
             res.render('view-jobrole-specification', { jobRoleSpec: data } )
     })
+
     app.get('/add-jobrole', async (req: Request, res: Response) => {
         let bands = [];
         let capabilitys = [];
@@ -46,7 +48,7 @@ module.exports = function(app: Application) {
     })
 
     app.post('/add-jobrole', async (req: Request, res: Response) => {
-        let data: JobRoleCorrect = req.body
+        let data: JobRoleAdd = req.body
         
         let id: Number
 
@@ -58,6 +60,7 @@ module.exports = function(app: Application) {
             console.error(e);
 
             res.locals.errormessage = e.message
+            res.locals.jobRole = data
 
             res.render('add-jobrole')
         }

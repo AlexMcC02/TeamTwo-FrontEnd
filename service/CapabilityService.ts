@@ -4,7 +4,7 @@ import { Capability } from "../model/Capability";
 
 module.exports.getCapabilities = async function() {
     try {
-        const response = await axios.get('http://localhost:8080/api/capabilities')
+        const response = await axios.get(process.env.UI_URL + '/api/capabilities')
 
         return response.data
     } catch (e) {

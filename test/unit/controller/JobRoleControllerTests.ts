@@ -50,21 +50,20 @@ const mockJobRole = {
         })
         describe('GET /job_roles/:id', function () {
             it('should render the view-jobrole-specification view with job role data', async () => {
-              // Mock service using sinon.
+              
               const stub = sinon.stub(jobRoleService, 'getSpecificationById').returns(mockJobRole);
         
-              // Run test.
+              
               const response = await request
-                .get('/job_roles/1') // Assuming you are testing for job role ID 1.
-                .set('Accept', 'text/html') // Set the accept header to indicate HTML response.
+                .get('/job_roles/1') 
+                .set('Accept', 'text/html') 
                 .expect(200);
         
-              // Assertions
-              expect(response.text).to.include('Name'); // Check if the rendered view contains the job role name.
-              expect(response.text).to.include('Specification'); // Check if the rendered view contains the job role summary.
-              expect(response.text).to.include('Link'); // Check if the rendered view contains the job role link.
-              /* Clear stub after test completes, necessary to prevent the sinon spy from
-              interfering with other tests. */
+
+              expect(response.text).to.include('Name'); 
+              expect(response.text).to.include('Specification'); 
+              expect(response.text).to.include('Link'); 
+            
               stub.restore();
             });
         });
@@ -83,19 +82,37 @@ const mockJobRole = {
                 stub.restore()
             })
         })
-    
+
+            // it('should render the add-jobrole view on failure', async () => {
+            //     const errorMock = new Error('Mock error message');
+                
+            //     const stub = sinon.stub(jobRoleService, 'createJobRole').throws(errorMock);
+            
+            //     const response = await supertest(app)
+            //         .post('/add-jobrole')
+            //         .send({ name: 'Software Engineer', specification: 'Works on stuff' })
+            //         .set('Accept', 'application/json')
+            //         .expect(200); 
+            
+            //     expect(response.text).contain(errorMock.message);
+            
+            //     stub.restore();
+            // });
+
             it('should render the add-jobrole view on failure', async () => {
-    
-                const stub = sinon.stub(jobRoleService, "createJobRole").returns({
-                    id: 1,
-                    name: "Software Engineer",
-                    specification: "Works on stuff"
-                })
-    
+                const errorMock = new Error('Mock error message');
+                
+                const stub = sinon.stub(jobRoleService, 'createJobRole').throws(errorMock);
+            
                 const response = await supertest(app)
-                    .post('/add-jobrole').set('Accept', 'application/json').expect(302)
-    
-                stub.restore()
-            })
+                    .post('/add-jobrole')
+                    .send({ name: 'Software Engineer', specification: 'Works on stuff' })
+                    .set('Accept', 'application/json')
+                    .expect(200);
+
+                expect(response.text).contain(errorMock.message);
+            
+                stub.restore();
+            });
     })
 })

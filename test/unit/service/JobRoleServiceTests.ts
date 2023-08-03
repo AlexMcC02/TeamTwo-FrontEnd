@@ -1,7 +1,7 @@
 var axios = require('axios');
 import { expect, assert } from "chai";
 var MockAdapter = require('axios-mock-adapter')
-import { JobRoleCorrect } from "../../../model/JobRoleCorrect";
+import { JobRoleAdd } from "../../../model/JobRoleAdd";
 import chai from 'chai'
 const JobRoleService = require('../../../service/JobRoleService.ts')
 

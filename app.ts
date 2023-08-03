@@ -31,5 +31,3 @@ app.listen(3000, () => {
 
  
 require("./controller/JobRoleController")(app)
-require("./controller/BandController")(app)
-require("./controller/CapabilityController")(app)
