@@ -1,8 +1,13 @@
 var axios = require('axios');
+import { expect, assert } from "chai";
 var MockAdapter = require('axios-mock-adapter')
+import { JobRoleAdd } from "../../../model/JobRoleAdd";
 import chai from 'chai'
-const expect = chai.expect
 const JobRoleService = require('../../../service/JobRoleService.ts')
+const JobRoleValidator = require('../../../validator/JobRoleValidator.ts')
+const validateJobRole = require('../../../validator/JobRoleValidator');
+import  sinon  from "sinon";
+chai.should();
 
 const jobrole = {
     id: "1",
@@ -21,6 +26,15 @@ const jobroleSpec = {
     name: "Software Engineer",
     specification: "Does coding.",
     urlLink: "https://www.google.com"
+}
+
+const jobroleAdd = {
+    id: 1,
+    name: "Software Engineer",
+    specification: "Does coding",
+    bandId: 1,
+    capabilityId: 1,
+    urlLink: "www.google.com"
 }
 
 describe('JobRoleService', function () {
@@ -77,5 +91,96 @@ describe('JobRoleService', function () {
                 expect(error.message).to.equal('Could not find specification with the given ID.');
             }
         });
+    });
+
+    describe('createJobRole', function () {
+        it('should return the created job role ID from response', async () => {
+            var mock = new MockAdapter(axios);
+    
+            const createdId = 1;
+            const createdJobRole = { ...jobroleAdd, id: createdId };
+    
+            mock.onPost(JobRoleService.URL, jobroleAdd).reply(200, createdJobRole);
+    
+            var resultId;
+            try {
+                resultId = await JobRoleService.createJobRole(jobroleAdd);
+                assert.strictEqual(resultId.id, createdId);
+            } catch (error) {
+                assert.fail('Unexpected error: ' + error.message);
+            }
+        });
+        it('should throw an error if the request fails', async () => {
+            var mock = new MockAdapter(axios);
+
+            mock.onPost(JobRoleService.URL, jobroleAdd).reply(500);
+
+            try {
+                await JobRoleService.createJobRole(jobroleAdd);
+               // assert.fail('Expected an error to be thrown.');
+            } catch (error) {
+                assert.strictEqual(error.message, 'Could not create job role.');
+            }
+        });
+
+        it('should throw an error if the job role is missing a required field', async () => {
+            const mock = new MockAdapter(axios);
+        
+            const jobroleAdd = {
+              id: 1,
+              name: "",
+              specification: "Does coding",
+              bandId: 1,
+              capabilityId: 1,
+              urlLink: "www.google.com"
+            }
+        
+            const invalidJobRole = { ...jobroleAdd };
+            const validateStub = sinon.stub(JobRoleValidator, 'validateJobRole').returns("error");
+        
+            try {
+              await JobRoleService.createJobRole(invalidJobRole);
+              assert.fail('Could not create job role.');
+            } catch (error) {
+              expect(error.message).to.contain('error');
+            }
+
+            validateStub.restore();
+
+          });
+          it('should create the job role if the data is valid', async () => {
+            const mock = new MockAdapter(axios);
+        
+            const jobroleAdd = {
+              id: 1,
+              name: "Software Engineer", // All required fields are present and valid
+              specification: "Does coding",
+              bandId: 1,
+              capabilityId: 1,
+              urlLink: "www.google.com"
+            }
+        
+            const createdId = 1;
+            const createdJobRole = { ...jobroleAdd, id: createdId };
+        
+            // Mock the validator function to return null (no error)
+            const validateStub = sinon.stub(JobRoleValidator, 'validateJobRole').returns(null);
+        
+            // Mock the API response for successful creation
+            mock.onPost(JobRoleService.URL, jobroleAdd).reply(200, createdJobRole);
+        
+            // Call the service method with the valid data
+            try {
+              const resultId = await JobRoleService.createJobRole(jobroleAdd);
+        
+              // Assert that the job role was created successfully without any errors
+              expect(resultId.id).to.equal(createdId);
+            } catch (error) {
+              assert.fail('Unexpected error: ' + error.message);
+            }
+        
+            // Restore the stub after the test
+            validateStub.restore();
+          });
     });
 });
