@@ -99,12 +99,6 @@ describe('JobRoleController', function() {
                 .set('Accept', 'application/json')
                 .expect(200);
 
-            // Logging to check arguments used for the deleteJobRole function
-            console.log(fakeDeleteJobRole.getCall(0).args[0]); // Accessing the first call's first argument
-
-            // Logging the response from the DELETE request
-            console.log(response.text);
-
             // Assertions
             expect(response.text).to.contain('Deleted Job Role');
             expect(response.text).to.contain('No longer exists');
