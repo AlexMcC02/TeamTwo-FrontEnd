@@ -56,6 +56,7 @@ describe('JobRoleUITest', async () => {
 
       await driver.findElement(webdriver.By.id('backToJobRolesButton')).click()
 
+      
   await driver.quit();
 })
 });
