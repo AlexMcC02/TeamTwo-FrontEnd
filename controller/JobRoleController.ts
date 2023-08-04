@@ -1,7 +1,11 @@
 import { Application, Request, Response } from "express";
 import { JobRoleSpec } from "../model/JobRoleSpec";
+import { JobRoleAdd } from "../model/JobRoleAdd";
 
 const jobRoleService = require('../service/JobRoleService')
+const BandService = require('../service/BandService')
+const CapabilityService = require('../service/CapabilityService')
+
 
 module.exports = function(app: Application) {
     app.get('/job_roles', async (req: Request, res: Response) => {
@@ -28,19 +32,5 @@ module.exports = function(app: Application) {
                 res.locals.errormessage = e.message;
             }
             res.render('view-jobrole-specification', { jobRoleSpec: data } )
-    })
-
-    app.delete('/job_roles/:id', async (req: Request, res: Response) => {
-        const jobId = req.params.id;
-        let data = [];
-
-        try {
-            await jobRoleService.deleteJobRole(jobId);
-            data = await jobRoleService.getJobRoles();
-        } catch (e) {
-            console.error(e);
-            res.locals.errormessage = "Failed to delete job role"
-        }
-        res.render('list-jobroles', { jobRoles: data } )
     })
 }

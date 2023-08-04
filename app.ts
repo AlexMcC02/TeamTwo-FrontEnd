@@ -16,17 +16,24 @@ const nunjucksConfig = {
 
 nunjucks.configure(appViews, nunjucksConfig)
 
+
 app.set('view engine', 'html')
 
 app.use('/public', express.static(path.join(__dirname, 'public')))
+
+app.use(express.json())
+
+app.use(express.urlencoded({ extended: true }))
 
 app.listen(3000, () => {
     console.log('Server listening on port 3000')
 })
 
-app.get('/', (req, res) => {
-    res.render('list-jobroles')
+
+app.get("/index", (req, res) => {
+    res.render("index", {
+    title: "Index",
+  });
 })
 
 require("./controller/JobRoleController")(app);
-

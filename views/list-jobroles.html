@@ -4,21 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <title>View Job Roles</title>
+    <link rel="icon" href="https://kainos.com/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     </meta>
 </head>
 
 <body>
-    <header class="bg-dark text-light">
+    <header class="p-4 bg-success">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 id="header">View Job Roles</h1>
+                    <h1>
+                        <img src="https://companieslogo.com/img/orig/KNOS.L_BIG-1e73b806.png?t=1652854256" alt="Kainos" class="img-fluid"
+                            width="200" height="50">
+                    </h1>
                 </div>
             </div>
         </div>
     </header>
-    <main class="container mt-4">
+    <main class="container mt-4" style="font-family: 'Darker Grotesque'">
         {% if errormessage %} 
             <div id="view-job_roles-error" class="text-danger">{{ errormessage }}</div> 
         {% endif %}
@@ -53,6 +60,10 @@
             {% endif %}
         </section>
     </main>
+
+    <footer class="p-3 bg-dark text-white text-right fixed-bottom small">
+        <p>Copyright © 2023 Kainos.</p>
+    </footer>
     <script>
         src="public/script.js"
         function deleteJobRole(jobRoleId) {
