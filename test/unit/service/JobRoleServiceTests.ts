@@ -49,19 +49,18 @@ describe('JobRoleService', function () {
             var results = await JobRoleService.getJobRoles();
 
             expect(results[0]).to.deep.equal(jobrole)
-          })
-    })
-    describe('getJobRoles', function () {
+        })
+
         it('should return exception when 500 error returned from axios', async () => {
             var mock = new MockAdapter(axios);
-
-            mock.onGet(JobRoleService.URL).reply(500);
-
+    
+            mock.onGet(JobRoleService.URL).networkError();
+    
             var error = await JobRoleService.getJobRoles();
 
             expect(error.message).to.equal('Could not get job roles.')
           })
-    })   
+    }) 
     describe('getSpecificationById', function () {
         it('should return job role specification from response', async () => {
 
@@ -90,6 +89,22 @@ describe('JobRoleService', function () {
             } catch (error) {
                 expect(error.message).to.equal('Could not find specification with the given ID.');
             }
+        });
+    })
+    describe('deleteJobRole', function () {
+        it('should throw an error when unable to delete job role', async () => {
+          const jobId = "1"; // The ID of the job role to be deleted
+          var mock = new MockAdapter(axios);
+    
+          mock.onDelete(`${JobRoleService.URL}/${jobId}`).reply(500);
+    
+          try {
+            await JobRoleService.deleteJobRole(jobId);
+    
+            expect.fail('Could not delete job role.');
+          } catch (error) {
+            expect(error.message).to.equal('Could not delete job role.');
+          }
         });
     });
 
